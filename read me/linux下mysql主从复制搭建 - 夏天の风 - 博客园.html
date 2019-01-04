@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)https://www.cnblogs.com/merely/p/9714827.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="origin">
+<title>linux下mysql主从复制搭建 - 夏天の风 - 博客园</title>
+<meta property="og:description" content="目标：搭建两台MySQL服务器，一台作为主服务器，一台作为从服务器，实现主从复制 环境： 主数据库： 192.168.1.1 从数据库： 192.168.1.2 mysql安装可参考：htt">
+<link type="text/css" rel="stylesheet" href="./linux下mysql主从复制搭建 - 夏天の风 - 博客园_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="./linux下mysql主从复制搭建 - 夏天の风 - 博客园_files/bundle-summerGarden.css">
+<link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="./linux下mysql主从复制搭建 - 夏天の风 - 博客园_files/bundle-summerGarden-mobile.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/merely/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/merely/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/merely/wlwmanifest.xml">
+<script src="./linux下mysql主从复制搭建 - 夏天の风 - 博客园_files/osd.js.下载"></script><script src="./linux下mysql主从复制搭建 - 夏天の风 - 博客园_files/amp4ads-host-v0.js.下载"></script><script src="./linux下mysql主从复制搭建 - 夏天の风 - 博客园_files/pubads_impl_rendering_285.js.下载"></script><script async="" src="./linux下mysql主从复制搭建 - 夏天の风 - 博客园_files/analytics.js.下载"></script><script type="text/javascript" src="./linux下mysql主从复制搭建 - 夏天の风 - 博客园_files/encoder.js.下载"></script><script src="./linux下mysql主从复制搭建 - 夏天の风 - 博客园_files/jquery-2.2.0.min.js.下载"></script>
+<script type="text/javascript">var currentBlogApp = 'merely', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="./linux下mysql主从复制搭建 - 夏天の风 - 博客园_files/blog-common.js.下载" type="text/javascript"></script>
+<link rel="preload" href="./linux下mysql主从复制搭建 - 夏天の风 - 博客园_files/f.txt" as="script"><script type="text/javascript" src="./linux下mysql主从复制搭建 - 夏天の风 - 博客园_files/f.txt"></script><script src="./linux下mysql主从复制搭建 - 夏天の风 - 博客园_files/pubads_impl_285.js.下载" async=""></script><link rel="prefetch" href="https://tpc.googlesyndication.com/safeframe/1-0-31/html/container.html"></head>
+<body>
+<a name="top"></a>
+
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+	<a id="lnkBlogLogo" href="https://www.cnblogs.com/merely/"><img id="blogLogo" src="./linux下mysql主从复制搭建 - 夏天の风 - 博客园_files/logo.gif" alt="返回主页"></a>			
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="https://www.cnblogs.com/merely/">夏天の风</a></h1>
+<h2></h2>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+	<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">博客园</a></li>
+	<li><a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/merely/">首页</a></li>
+	<li><a href="http://news.cnblogs.com/">新闻</a></li>
+	<li><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+	<li><a id="blog_nav_contact" accesskey="9" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/%E5%A4%8F%E5%A4%A9%E3%81%AE%E9%A3%8E">联系</a></li>
+	<li><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+	<li><a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/merely/rss">订阅</a>
+	<a id="blog_nav_rss_image" class="aHeaderXML" href="https://www.cnblogs.com/merely/rss"><img src="./linux下mysql主从复制搭建 - 夏天の风 - 博客园_files/xml.gif" alt="订阅"></a></li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<div id="blog_stats">
+<!--done-->
+随笔- 3&nbsp;
+文章- 0&nbsp;
+评论- 0&nbsp;
+</div>
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class="post">
+		<h1 class="postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/merely/p/9714827.html">linux下mysql主从复制搭建</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body" class="blogpost-body"><hr style="border: 1 dashed #987cb9; float: left" size="1" width="80%">
+<p>&nbsp;</p>
+<p>目标：搭建两台MySQL服务器，一台作为主服务器，一台作为从服务器，实现主从复制</p>
+<p>环境：<br>	　　主数据库： 192.168.1.1<br>	　　从数据库：&nbsp;192.168.1.2</p>
+<p>　　mysql安装可参考：https://www.cnblogs.com/merely/p/9714681.html</p>
+<p>配置步骤：</p>
+<p>1、保证两个数据库中的库和数据是一致的；</p>
+<p>2、在主数据中创建一个同步账号（可不创建使用现有的），如果仅仅为了主从复制创建账号，只需要授予REPLICATION SLAVE权限。<br>1)、创建一个账号，账号：master   密码： 123456</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff">CREATE</span> <span style="color: #ff00ff">USER</span> <span style="color: #ff0000">'</span><span style="color: #ff0000">master</span><span style="color: #ff0000">'</span>@<span style="color: #ff0000">'</span><span style="color: #ff0000">%</span><span style="color: #ff0000">'</span> IDENTIFIED <span style="color: #0000ff">BY</span> <span style="color: #ff0000">'</span><span style="color: #ff0000">6MgIKsZhGN</span><span style="color: #ff0000">'</span><span style="color: #000000">;
+</span><span style="color: #0000ff">GRANT</span> <span style="color: #0000ff">REPLICATION</span> SLAVE <span style="color: #0000ff">ON</span> <span style="color: #808080">*</span>.<span style="color: #808080">*</span> <span style="color: #0000ff">TO</span> <span style="color: #ff0000">'</span><span style="color: #ff0000">master</span><span style="color: #ff0000">'</span>@<span style="color: #ff0000">'</span><span style="color: #ff0000">%</span><span style="color: #ff0000">'</span> IDENTIFIED <span style="color: #0000ff">BY</span> <span style="color: #ff0000">'</span><span style="color: #ff0000">123456</span><span style="color: #ff0000">'</span> <span style="color: #0000ff">WITH</span> <span style="color: #0000ff">GRANT</span> <span style="color: #0000ff">OPTION</span>;</pre>
+</div>
+<p>3、配置主数据库<br>		1）要主数据库，你必须要启用二进制日志（binary logging），并且创建一个唯一的Server ID，这步骤可能要重启MySQL。<br>		2）主服务器发送变更记录到从服务器依赖的是二进制日志，如果没启用二进制日志，复制操作不能实现（主库复制到从库）。<br>		3）复制组中的每台服务器都要配置唯一的Server ID，取值范围是1到(232)−1，你自己决定取值。<br>		4）配置二进制日志和Server ID，你需要关闭MySQL和编辑my.cnf或者my.ini文件，在 [mysqld] 节点下添加配置。<br>		5）下面是启用二进制日志，日志文件名以“mysql-bin”作为前缀，Server ID配置为1，如下：</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./linux下mysql主从复制搭建 - 夏天の风 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #000000">[mysqld]
+log</span>-bin=mysql-<span style="color: #000000">bin
+server</span>-id=<span style="color: #800080">22</span><span style="color: #000000">
+#网络上还有如下配置
+#binlog</span>-<span style="color: #0000ff">do</span>-db=mstest <span style="color: #008000">//</span><span style="color: #008000">要同步的mstest数据库,要同步多个数据库，就多加几个replicate-db-db=数据库名 </span>
+#binlog-ignore-db=mysql <span style="color: #008000">//</span><span style="color: #008000">要忽略的数据库</span>
+innodb_flush_log_at_trx_commit=<span style="color: #800080">1</span><span style="color: #000000">
+sync_binlog</span>=<span style="color: #800080">1</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./linux下mysql主从复制搭建 - 夏天の风 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>4、重启mysql</p>
+<p>5、查看主服务器状态：</p>
+<div class="cnblogs_code">
+<pre>cd /usr/local/mysql/<span style="color: #000000">bin
+.</span>/mysql -uroot -<span style="color: #000000">p
+mysql</span>&gt; show master status;</pre>
+</div>
+<p><span style="color: #ff0000"><strong>注意：记录好File和Position，后面要用</strong></span><br>	</p>
+<p>6、配置从数据库：<br>		1）从服务器，同理，要分配一个唯一的Server ID，需要关闭MySQL，修改好后再重启，如下：</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./linux下mysql主从复制搭建 - 夏天の风 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #000000">[mysqld]
+server</span>-id=<span style="color: #800080">23</span><span style="color: #000000">
+#可以指定要复制的库
+replicate</span>-<span style="color: #0000ff">do</span>-db=test-xxx #在master端不指定binlog-<span style="color: #0000ff">do</span>-db，在slave端用replication-<span style="color: #0000ff">do</span>-<span style="color: #000000">db来过滤
+replicate</span>-ignore-db=<span style="color: #000000">mysql #忽略的库
+#网上还有下面配置
+#relay</span>-log=mysqld-relay-bin</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./linux下mysql主从复制搭建 - 夏天の风 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p> 2）配置连接主服务器的信息：<br>			进入sqlplus:</p>
+<div class="cnblogs_code">
+<pre>cd /usr/local/mysql/<span style="color: #000000">bin
+.</span>/mysql -uroot -p</pre>
+</div>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./linux下mysql主从复制搭建 - 夏天の风 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre>mysql&gt;<span style="color: #000000"> stop slave;
+mysql</span>&gt;<span style="color: #000000"> CHANGE MASTER TO
+</span>-&gt; MASTER_HOST=<span style="color: #800000">'</span><span style="color: #800000">192.168.1.1</span><span style="color: #800000">'</span><span style="color: #000000">,
+</span>-&gt; MASTER_USER=<span style="color: #800000">'</span><span style="color: #800000">master</span><span style="color: #800000">'</span><span style="color: #000000">,
+</span>-&gt; MASTER_PASSWORD=<span style="color: #800000">'</span><span style="color: #800000">123456</span><span style="color: #800000">'</span><span style="color: #000000">,
+</span>-&gt; MASTER_PORT=<span style="color: #800080">3309</span><span style="color: #000000">,
+</span>-&gt; MASTER_LOG_FILE=<span style="color: #800000">'</span><span style="color: #800000">mysql-bin.000001</span><span style="color: #800000">'</span><span style="color: #000000">,
+</span>-&gt; MASTER_LOG_POS=<span style="color: #800080">154</span><span style="color: #000000">;
+mysql</span>&gt; start slave;</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./linux下mysql主从复制搭建 - 夏天の风 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>3）查看状态</p>
+<div class="cnblogs_code">
+<pre>mysql&gt; show slave status \G;</pre>
+</div>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./linux下mysql主从复制搭建 - 夏天の风 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre>       Slave_IO_State: Waiting <span style="color: #0000ff">for</span> master to send <span style="color: #0000ff">event</span><span style="color: #000000">
+          Master_Host: </span><span style="color: #000000"><span style="color: #800080">192.168.1.1</span></span><span style="color: #000000">
+          Master_User: master
+          Master_Port: </span><span style="color: #800080">3309</span><span style="color: #000000">
+        Connect_Retry: </span><span style="color: #800080">60</span><span style="color: #000000">
+      Master_Log_File: mysql</span>-bin.<span style="color: #800080">000001</span><span style="color: #000000">
+  Read_Master_Log_Pos: </span><span style="color: #800080">2950</span><span style="color: #000000">
+       Relay_Log_File: localhost</span>-relay-bin.<span style="color: #800080">000007</span><span style="color: #000000">
+        Relay_Log_Pos: </span><span style="color: #800080">320</span><span style="color: #000000">
+Relay_Master_Log_File: mysql</span>-bin.<span style="color: #800080">000001</span><span style="color: #000000">
+     Slave_IO_Running: Yes
+    Slave_SQL_Running: Yes
+      Replicate_Do_DB: </span><span style="color: #000000">test-xxx
+  Replicate_Ignore_DB: mysql
+        ...
+Seconds_Behind_Master: </span><span style="color: #800080">0</span><span style="color: #000000"> #表示已同步
+        ...</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./linux下mysql主从复制搭建 - 夏天の风 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>4）若 <strong>Slave_SQL_Running: no</strong> 请重复执行以下内容，直至yes：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #000000">stop slave;
+</span><span style="color: #0000ff">set</span> GLOBAL SQL_SLAVE_SKIP_COUNTER=<span style="color: #800080">1</span><span style="color: #000000">;
+start slave;</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>参考的资料：</p>
+<p>　　1、https://blog.csdn.net/envon123/article/details/76615059<br>　　2、https://blog.csdn.net/xiaoxinla/article/details/7679578</p></div><div id="MySignature" style="display: block;"><hr style="border: 1 dashed #987cb9" width="80%" color="#987cb9" size="1">
+<br>
+
+<p style="color: #987cb9">
+  世间万物<br>
+      花是花，草是草，你是你，我是我<br>
+          只要拥有这样的自由，满心才是欢喜
+</p>
+
+<br>
+<hr style="border: 1 dashed #987cb9" width="80%" color="#987cb9" size="1"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory">分类: <a href="https://www.cnblogs.com/merely/category/1262332.html" target="_blank">环境搭建、配置</a></div>
+<div id="EntryTag">标签: <a href="https://www.cnblogs.com/merely/tag/mysql/">mysql</a></div>
+<div id="blog_post_info"><div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(9714827,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+            <a id="green_channel_follow" onclick="follow(&#39;e1c01aa0-3606-e611-9fc1-ac853d9f53cc&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./linux下mysql主从复制搭建 - 夏天の风 - 博客园_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./linux下mysql主从复制搭建 - 夏天の风 - 博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/merely/" target="_blank"><img src="./linux下mysql主从复制搭建 - 夏天の风 - 博客园_files/20180722105008.png" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/merely/">夏天の风</a><br>
+            <a href="http://home.cnblogs.com/u/merely/followees">关注 - 1</a><br>
+            <a href="http://home.cnblogs.com/u/merely/followers">粉丝 - 0</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow(&#39;e1c01aa0-3606-e611-9fc1-ac853d9f53cc&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(9714827,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">0</span>
+    </div>
+    <div class="buryit" onclick="votePost(9714827,&#39;Bury&#39;)">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+<script type="text/javascript">
+    currentDiggType = 0;
+</script></div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="https://www.cnblogs.com/merely/p/9714681.html" class="p_n_p_prefix">« </a> 上一篇：<a href="https://www.cnblogs.com/merely/p/9714681.html" title="发布于2018-09-27 18:02">linux下安装mysql-5.7.20</a><br></div>
+</div>
+
+
+		</div>
+		<div class="postDesc">posted @ <span id="post-date">2018-09-27 18:27</span> <a href="https://www.cnblogs.com/merely/">夏天の风</a> 阅读(<span id="post_view_count">307</span>) 评论(<span id="post_comment_count">0</span>)  <a href="https://i.cnblogs.com/EditPosts.aspx?postid=9714827" rel="nofollow">编辑</a> <a href="https://www.cnblogs.com/merely/p/9714827.html#" onclick="AddToWz(9714827);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=446230,cb_entryId=9714827,cb_blogApp=currentBlogApp,cb_blogUserGuid='e1c01aa0-3606-e611-9fc1-ac853d9f53cc',cb_entryCreatedDate='2018/9/27 18:27:00';loadViewCount(cb_entryId);var cb_postType=1;</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="https://www.cnblogs.com/merely/p/9714827.html#" onclick="return RefreshPage();">刷新页面</a><a href="https://www.cnblogs.com/merely/p/9714827.html#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-工控&#39;)">【推荐】超50万VC++源码: 大型组态工控、电力仿真CAD与GIS源码库！</a><br></div>
+<div id="opt_under_post"></div>
+<script async="async" src="./linux下mysql主从复制搭建 - 夏天の风 - 博客园_files/gpt.js.下载"></script>
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+<script>
+  googletag.cmd.push(function() {
+        googletag.defineSlot('/1090369/C1', [300, 250], 'div-gpt-ad-1546353474406-0').addService(googletag.pubads());
+        googletag.defineSlot('/1090369/C2', [468, 60], 'div-gpt-ad-1539008685004-0').addService(googletag.pubads());
+        googletag.pubads().enableSingleRequest();
+        googletag.enableServices();
+  });
+</script>
+<div id="cnblogs_c1" class="c_ad_block">
+<div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;" data-google-query-id="CLX_9fjG098CFRrRlgodeegCCQ">
+<script>
+if(canShowAdsense()) {
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1546353474406-0'); });
+}
+</script>
+<div id="google_ads_iframe_/1090369/C1_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/1090369/C1_0" title="3rd party ad content" name="google_ads_iframe_/1090369/C1_0" width="300" height="250" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="border: 0px; vertical-align: bottom;" data-google-container-id="1" data-load-complete="true" src="./linux下mysql主从复制搭建 - 夏天の风 - 博客园_files/saved_resource.html"></iframe></div></div>
+</div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>相关博文：</b><br>·  <a href="https://www.cnblogs.com/wangzihong/p/10148272.html" target="_blank" onclick="clickRecomItmem(10148272,&#39;null&#39;)">Django初始项目</a><br>·  <a href="https://www.cnblogs.com/binyuei/p/10154636.html" target="_blank" onclick="clickRecomItmem(10154636,&#39;null&#39;)">flask中的简单的前端写入</a><br>·  <a href="https://www.cnblogs.com/si812cn/p/10154644.html" target="_blank" onclick="clickRecomItmem(10154644,&#39;null&#39;)">windows 安装lua-5.3.4 --引用自https://blog.csdn.net/wangtong01/article/details/78296369</a><br>·  <a href="https://www.cnblogs.com/lhyxq/p/10154648.html" target="_blank" onclick="clickRecomItmem(10154648,&#39;null&#39;)">Javascript高级编程学习笔记（18）—— 引用类型（7）单体内置对象</a><br>·  <a href="https://www.cnblogs.com/RHadoop-Hive/p/10154651.html" target="_blank" onclick="clickRecomItmem(10154651,&#39;null&#39;)">Rstudio常用操作</a><br></div></div>
+<div id="cnblogs_c2" class="c_ad_block">
+    <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;" data-google-query-id="CKux9PjG098CFUuJwgod5r8GeQ">
+    <script>
+    if(canShowAdsense()) {
+        googletag.cmd.push(function() { googletag.display('div-gpt-ad-1539008685004-0'); });
+    }
+    </script>
+    <div id="google_ads_iframe_/1090369/C2_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/1090369/C2_0" title="3rd party ad content" name="google_ads_iframe_/1090369/C2_0" width="468" height="60" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="border: 0px; vertical-align: bottom;" data-google-container-id="2" data-load-complete="true" src="./linux下mysql主从复制搭建 - 夏天の风 - 博客园_files/saved_resource(1).html"></iframe></div></div>
+</div>
+<div id="under_post_kb"><div class="itnews c_ad_block"><b>最新新闻</b>：<br> ·  <a href="https://news.cnblogs.com/n/616488/" target="_blank">下沉市场背后的真实中国</a><br> ·  <a href="https://news.cnblogs.com/n/616492/" target="_blank">瑞幸乌托邦 资本咖啡的泡沫？</a><br> ·  <a href="https://news.cnblogs.com/n/616491/" target="_blank">2019年手机厂商的难题：5G要来，跟还是不跟？</a><br> ·  <a href="https://news.cnblogs.com/n/616490/" target="_blank">滴滴出行的2018：战争、扩张与危机</a><br> ·  <a href="https://news.cnblogs.com/n/616485/" target="_blank">算上玉兔二号，月亮上现在有多少辆车？</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"><div id="profile_block">昵称：<a href="https://home.cnblogs.com/u/merely/">夏天の风</a><br>园龄：<a href="https://home.cnblogs.com/u/merely/" title="入园时间：2016-04-19">2年8个月</a><br>粉丝：<a href="https://home.cnblogs.com/u/merely/followers/">0</a><br>关注：<a href="https://home.cnblogs.com/u/merely/followees/">1</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="follow(&#39;e1c01aa0-3606-e611-9fc1-ac853d9f53cc&#39;)">+加关注</a></div><script>getFollowStatus('e1c01aa0-3606-e611-9fc1-ac853d9f53cc')</script></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="calendar"><div id="blog-calendar" style=""><table id="blogCalendar" class="Cal" cellspacing="0" cellpadding="0" title="Calendar">
+	<tbody><tr><td colspan="7"><table class="CalTitle" cellspacing="0">
+		<tbody><tr><td class="CalNextPrev"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2018/12/01&#39;);return false;">&lt;</a></td><td align="center">2019年1月</td><td class="CalNextPrev" align="right"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2019/02/01&#39;);return false;">&gt;</a></td></tr>
+	</tbody></table></td></tr><tr><th class="CalDayHeader" align="center" abbr="日" scope="col">日</th><th class="CalDayHeader" align="center" abbr="一" scope="col">一</th><th class="CalDayHeader" align="center" abbr="二" scope="col">二</th><th class="CalDayHeader" align="center" abbr="三" scope="col">三</th><th class="CalDayHeader" align="center" abbr="四" scope="col">四</th><th class="CalDayHeader" align="center" abbr="五" scope="col">五</th><th class="CalDayHeader" align="center" abbr="六" scope="col">六</th></tr><tr><td class="CalOtherMonthDay" align="center">30</td><td class="CalOtherMonthDay" align="center">31</td><td align="center">1</td><td align="center">2</td><td align="center">3</td><td class="CalTodayDay" align="center">4</td><td class="CalWeekendDay" align="center">5</td></tr><tr><td class="CalWeekendDay" align="center">6</td><td align="center">7</td><td align="center">8</td><td align="center">9</td><td align="center">10</td><td align="center">11</td><td class="CalWeekendDay" align="center">12</td></tr><tr><td class="CalWeekendDay" align="center">13</td><td align="center">14</td><td align="center">15</td><td align="center">16</td><td align="center">17</td><td align="center">18</td><td class="CalWeekendDay" align="center">19</td></tr><tr><td class="CalWeekendDay" align="center">20</td><td align="center">21</td><td align="center">22</td><td align="center">23</td><td align="center">24</td><td align="center">25</td><td class="CalWeekendDay" align="center">26</td></tr><tr><td class="CalWeekendDay" align="center">27</td><td align="center">28</td><td align="center">29</td><td align="center">30</td><td align="center">31</td><td class="CalOtherMonthDay" align="center">1</td><td class="CalOtherMonthDay" align="center">2</td></tr><tr><td class="CalOtherMonthDay" align="center">3</td><td class="CalOtherMonthDay" align="center">4</td><td class="CalOtherMonthDay" align="center">5</td><td class="CalOtherMonthDay" align="center">6</td><td class="CalOtherMonthDay" align="center">7</td><td class="CalOtherMonthDay" align="center">8</td><td class="CalOtherMonthDay" align="center">9</td></tr>
+</tbody></table></div><script type="text/javascript">loadBlogDefaultCalendar();</script></div>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block"></div><div id="sidebar_shortcut" class="sidebar-block">
+<div class="catListLink">
+<h3 class="catListTitle">常用链接</h3>
+<ul>
+<li><a href="https://www.cnblogs.com/merely/p/" title="我的博客的随笔列表">我的随笔</a></li><li><a href="https://www.cnblogs.com/merely/MyComments.html" title="我发表过的评论列表">我的评论</a></li><li><a href="https://www.cnblogs.com/merely/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li><li><a href="https://www.cnblogs.com/merely/RecentComments.html" title="我的博客的评论列表">最新评论</a></li><li><a href="https://www.cnblogs.com/merely/tag/" title="我的博客的标签列表">我的标签</a></li>
+<li><a id="itemListLink" onclick="this.blur();WarpClass(&#39;itemListLink&#39;, &#39;itemListLin_con&#39;);return false;" href="https://www.cnblogs.com/merely/p/9714827.html#">更多链接</a></li>
+</ul>
+<div id="itemListLin_con" style="display:none;">
+<ul>
+
+</ul>
+</div>
+</div></div><div id="sidebar_toptags" class="sidebar-block">
+<div class="catListTag">
+<h3 class="catListTitle">我的标签</h3>
+<ul>
+<li><a href="https://www.cnblogs.com/merely/tag/mysql/">mysql</a>(2)</li><li><a href="https://www.cnblogs.com/merely/tag/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/">环境变量</a>(1)</li>
+</ul>
+</div></div><div id="sidebar_categories">
+<div class="catListPostCategory">
+<h3 class="catListTitle">随笔分类</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_0_Link_0" href="https://www.cnblogs.com/merely/category/1307809.html">SpringBoot、SpringCloud</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_1" href="https://www.cnblogs.com/merely/category/1262332.html">环境搭建、配置(3)</a> </li>
+
+</ul>
+
+</div>
+
+<div class="catListPostArchive">
+<h3 class="catListTitle">随笔档案</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_1_Link_0" href="https://www.cnblogs.com/merely/archive/2018/09.html">2018年9月 (3)</a> </li>
+
+</ul>
+
+</div>
+
+</div><div id="sidebar_recentcomments" class="sidebar-block"><div id="recent_comments_wrap" style="display: none;">
+<div class="catListComment">
+<h3 class="catListTitle">最新评论</h3>
+
+	<div id="RecentCommentsBlock"></div>
+</div>
+</div></div><div id="sidebar_topviewedposts" class="sidebar-block"><div id="topview_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">阅读排行榜</h3>
+	<div id="TopViewPostsBlock"><ul><li><a href="https://www.cnblogs.com/merely/p/9714827.html">1. linux下mysql主从复制搭建(307)</a></li><li><a href="https://www.cnblogs.com/merely/p/9714681.html">2. linux下安装mysql-5.7.20(55)</a></li><li><a href="https://www.cnblogs.com/merely/p/9699911.html">3. Java开发环境搭建(8)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topcommentedposts" class="sidebar-block"><div id="topfeedback_posts_wrap" style="display: none;">
+<div class="catListFeedback">
+<h3 class="catListTitle">评论排行榜</h3>
+	<div id="TopFeedbackPostsBlock"></div>
+</div>
+</div></div><div id="sidebar_topdiggedposts" class="sidebar-block"><div id="topdigg_posts_wrap" style="display: none;">
+<h3 class="catListTitle">推荐排行榜</h3>
+<div class="RecentComment">
+	<div id="TopDiggPostsBlock"></div>
+</div></div></div></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright ©2019 夏天の风
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+<iframe id="google_osd_static_frame_6442331072519" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;" src="./linux下mysql主从复制搭建 - 夏天の风 - 博客园_files/saved_resource(2).html"></iframe></body></html>

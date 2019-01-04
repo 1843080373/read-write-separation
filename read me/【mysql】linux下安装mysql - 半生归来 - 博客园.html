@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)https://www.cnblogs.com/caiyunyun/p/7492373.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="origin">
+<title>【mysql】linux下安装mysql - 半生归来 - 博客园</title>
+<meta property="og:description" content="mysql在linux下的安装 1、下载 下载地址：http://dev.mysql.com/downloads/mysql/5.6.html#downloads 下载版本：我这里选择的5.6.33，">
+<link type="text/css" rel="stylesheet" href="./【mysql】linux下安装mysql - 半生归来 - 博客园_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="./【mysql】linux下安装mysql - 半生归来 - 博客园_files/bundle-MoonlightInk.css">
+<link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="./【mysql】linux下安装mysql - 半生归来 - 博客园_files/bundle-MoonlightInk-mobile.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/caiyunyun/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/caiyunyun/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/caiyunyun/wlwmanifest.xml">
+<script src="./【mysql】linux下安装mysql - 半生归来 - 博客园_files/f.txt"></script><script src="./【mysql】linux下安装mysql - 半生归来 - 博客园_files/amp4ads-host-v0.js.下载"></script><script src="./【mysql】linux下安装mysql - 半生归来 - 博客园_files/pubads_impl_rendering_285.js.下载"></script><script async="" src="./【mysql】linux下安装mysql - 半生归来 - 博客园_files/analytics.js.下载"></script><script src="./【mysql】linux下安装mysql - 半生归来 - 博客园_files/jquery-2.2.0.min.js.下载"></script>
+<script type="text/javascript">var currentBlogApp = 'caiyunyun', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="./【mysql】linux下安装mysql - 半生归来 - 博客园_files/blog-common.js.下载" type="text/javascript"></script>
+<link rel="preload" href="./【mysql】linux下安装mysql - 半生归来 - 博客园_files/f(1).txt" as="script"><script type="text/javascript" src="./【mysql】linux下安装mysql - 半生归来 - 博客园_files/f(1).txt"></script><script src="./【mysql】linux下安装mysql - 半生归来 - 博客园_files/pubads_impl_285.js.下载" async=""></script><link rel="prefetch" href="https://tpc.googlesyndication.com/safeframe/1-0-31/html/container.html"></head>
+<body>
+<a name="top"></a>
+
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+	<a id="lnkBlogLogo" href="https://www.cnblogs.com/caiyunyun/"><img id="blogLogo" src="./【mysql】linux下安装mysql - 半生归来 - 博客园_files/logo.gif" alt="返回主页"></a>			
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="https://www.cnblogs.com/caiyunyun/">半生归来</a></h1>
+<h2></h2>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">博客园</a></li>
+<li><a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/caiyunyun/">首页</a></li>
+<li><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+<li><a id="blog_nav_contact" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/%E5%8D%8A%E7%94%9F%E5%BD%92%E6%9D%A5">联系</a></li>
+<li><a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/caiyunyun/rss">订阅</a>
+<!--<a id="blog_nav_rss_image" class="aHeaderXML" href="https://www.cnblogs.com/caiyunyun/rss"><img src="//www.cnblogs.com/images/xml.gif" alt="订阅" /></a>--></li>
+<li><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+</ul>
+		<div class="blogStats">
+			
+			<div id="blog_stats">
+<span id="stats_post_count">随笔 - 8&nbsp; </span>
+<span id="stats_article_count">文章 - 1&nbsp; </span>
+<span id="stats-comment_count">评论 - 1</span>
+</div>
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class="post">
+		<h1 class="postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/caiyunyun/p/7492373.html">【mysql】linux下安装mysql</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body" class="blogpost-body"><p>mysql在linux下的安装</p>
+<p>1、下载</p>
+<p>　　　　下载地址：http://dev.mysql.com/downloads/mysql/5.6.html#downloads</p>
+<p>　　　　下载版本：我这里选择的5.6.33，通用版，linux下64位</p>
+<p>　　　　也可以直接复制64位的下载地址，通过命令下载：wget http://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.33-linux-glibc2.5-x86_64.tar.gz</p>
+<p>2、解压</p>
+<p>　　　　#解压<br>　　　　tar -zxvf mysql-5.6.33-linux-glibc2.5-x86_64.tar.gz<br>　　　　#复制解压后的mysql目录<br>　　　　cp -r mysql-5.6.33-linux-glibc2.5-x86_64 /usr/local/mysql</p>
+<p>&nbsp;</p>
+<p>3、添加用户组和用户</p>
+<p>　　　　#添加用户组<br>　　　　groupadd mysql<br>　　　　#添加用户mysql 到用户组mysql<br>　　　　useradd -g mysql mysql</p>
+<p>&nbsp;</p>
+<p>4、安装</p>
+<p>　　　　cd /usr/local/mysql/<br>　　　　mkdir ./data/mysql<br>　　　　chown -R mysql:mysql ./<br>　　　　./scripts/mysql_install_db --user=mysql --datadir=/usr/local/mysql/data/mysql<br>　　　　cp support-files/mysql.server /etc/init.d/mysqld<br>　　　　chmod 755 /etc/init.d/mysqld<br>　　　　cp support-files/my-default.cnf /etc/my.cnf<br> <br>　　　　#修改启动脚本<br>　　　　vi /etc/init.d/mysqld<br> <br>　　　　#修改项：<br>　　　　basedir=/usr/local/mysql/<br>　　　　datadir=/usr/local/mysql/data/mysql<br> <br>　　　　#启动服务<br>　　　　service mysqld start<br> <br>　　　　#测试连接<br>　　　　./mysql/bin/mysql -uroot<br> <br>　　　　#加入环境变量，编辑 /etc/profile，这样可以在任何地方用mysql命令了<br>　　　　export PATH=$PATH:/usr/local/mysql//bin</p>
+<p>　　　　source /etc/profile</p>
+<p><code class="bash comments">　　　　#启动mysql</code></p>
+<div class="line number26 index25 alt1"><code class="bash plain">　　　　service mysqld start</code></div>
+<div class="line number27 index26 alt2"><code class="bash comments">　　　　#关闭mysql</code></div>
+<div class="line number28 index27 alt1"><code class="bash plain">　　　　service mysqld stop</code></div>
+<div class="line number29 index28 alt2"><code class="bash comments">　　　　#查看运行状态</code></div>
+<div class="line number30 index29 alt1"><code class="bash plain">　　　　service mysqld status</code></div>
+<div class="line number30 index29 alt1">&nbsp;</div>
+<div class="line number30 index29 alt1">
+<p>5、错误</p>
+<p>　　5.1 sqlyog连接时，报1130错误，是由于没有给远程连接的用户权限问题</p>
+<p>　　　　解决1:更改 ‘mysql’数据库‘user’表‘host’项，从‘localhost’改成‘%’。</p>
+<p>　　　　use mysql;<br>　　　　select 'host' from user where user='root'; <br>　　　　update user set host = '%' where user ='root';<br>　　　　flush privileges; <br>　　　　解决2：直接授权</p>
+<p>　　　　　　GRANT ALL PRIVILEGES ON *.* TO ‘root’@'%’ IDENTIFIED BY ‘youpassword’ WITH GRANT OPTION;</p>
+<p>　　5.2 安装时的一些错误</p>
+<p>　　　　-bash: ./scripts/mysql_install_db: /usr/bin/perl: bad interpreter: 没有那个文件或目录<br>　　　　解决： yum -y install perl perl-devel</p>
+<p>　　　　Installing MySQL system tables..../bin/mysqld: error while loading shared libraries: libaio.so.1: cannot open shared object file: No such file or directory<br>　　　　解决：yum -y install libaio-devel</p>
+<p>6、其他</p>
+<p>　　6.1 配置环境变量</p>
+<p>　　　　vi + /etc/profile</p>
+<p>　　　　export PATH=....:/usr/local/mysql/bin</p>
+</div></div><div id="MySignature" style="display: block;">工欲善其事，必先利其器！</div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory">分类: <a href="https://www.cnblogs.com/caiyunyun/category/780096.html" target="_blank">Linux</a>,<a href="https://www.cnblogs.com/caiyunyun/category/780098.html" target="_blank">Mysql</a></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info"><div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(7492373,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+            <a id="green_channel_follow" onclick="follow(&#39;ba0402db-62b3-e511-9fc1-ac853d9f53cc&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./【mysql】linux下安装mysql - 半生归来 - 博客园_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./【mysql】linux下安装mysql - 半生归来 - 博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/caiyunyun/" target="_blank"><img src="./【mysql】linux下安装mysql - 半生归来 - 博客园_files/20160106130222.png" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/caiyunyun/">半生归来</a><br>
+            <a href="http://home.cnblogs.com/u/caiyunyun/followees">关注 - 5</a><br>
+            <a href="http://home.cnblogs.com/u/caiyunyun/followers">粉丝 - 1</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow(&#39;ba0402db-62b3-e511-9fc1-ac853d9f53cc&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(7492373,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">0</span>
+    </div>
+    <div class="buryit" onclick="votePost(7492373,&#39;Bury&#39;)">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+<script type="text/javascript">
+    currentDiggType = 0;
+</script></div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="https://www.cnblogs.com/caiyunyun/p/7492323.html" class="p_n_p_prefix">« </a> 上一篇：<a href="https://www.cnblogs.com/caiyunyun/p/7492323.html" title="发布于2017-09-07 22:46">【php】安装mysql扩展</a><br><a href="https://www.cnblogs.com/caiyunyun/p/7506610.html" class="p_n_p_prefix">» </a> 下一篇：<a href="https://www.cnblogs.com/caiyunyun/p/7506610.html" title="发布于2017-09-11 19:42">【设计思想】依赖注入</a><br></div>
+</div>
+
+
+		</div>
+		<div class="postDesc">posted @ <span id="post-date">2017-09-07 22:58</span> <a href="https://www.cnblogs.com/caiyunyun/">半生归来</a> 阅读(<span id="post_view_count">15725</span>) 评论(<span id="post_comment_count">1</span>)  <a href="https://i.cnblogs.com/EditPosts.aspx?postid=7492373" rel="nofollow">编辑</a> <a href="https://www.cnblogs.com/caiyunyun/p/7492373.html#" onclick="AddToWz(7492373);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=262033,cb_entryId=7492373,cb_blogApp=currentBlogApp,cb_blogUserGuid='ba0402db-62b3-e511-9fc1-ac853d9f53cc',cb_entryCreatedDate='2017/9/7 22:58:00';loadViewCount(cb_entryId);var cb_postType=1;</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"><div id="comments_pager_top"></div>
+<br>
+<div class="feedback_area_title">评论列表</div>
+<div class="feedbackNoItems"></div>	
+
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/caiyunyun/p/7492373.html#4049756" class="layer">#1楼</a><a name="4049756" id="comment_anchor_4049756"></a><span id="comment-maxId" style="display:none;">4049756</span><span id="comment-maxDate" style="display:none;">2018/8/24 11:06:11</span>  <span class="comment_date">2018-08-24 11:06</span> <a id="a_comment_author_4049756" href="http://home.cnblogs.com/u/1470807/" target="_blank">酒夜狸</a> <a href="http://msg.cnblogs.com/send/%E9%85%92%E5%A4%9C%E7%8B%B8" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_4049756" class="blog_comment_body">wurenzhidi</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(4049756,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(4049756,&#39;Bury&#39;,this)">反对(0)</a></div>
+			</div>
+		</div>
+	<div id="comments_pager_bottom"></div></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="https://www.cnblogs.com/caiyunyun/p/7492373.html#" onclick="return RefreshPage();">刷新页面</a><a href="https://www.cnblogs.com/caiyunyun/p/7492373.html#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-工控&#39;)">【推荐】超50万VC++源码: 大型组态工控、电力仿真CAD与GIS源码库！</a><br></div>
+<div id="opt_under_post"></div>
+<script async="async" src="./【mysql】linux下安装mysql - 半生归来 - 博客园_files/gpt.js.下载"></script>
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+<script>
+  googletag.cmd.push(function() {
+        googletag.defineSlot('/1090369/C1', [300, 250], 'div-gpt-ad-1546353474406-0').addService(googletag.pubads());
+        googletag.defineSlot('/1090369/C2', [468, 60], 'div-gpt-ad-1539008685004-0').addService(googletag.pubads());
+        googletag.pubads().enableSingleRequest();
+        googletag.enableServices();
+  });
+</script>
+<div id="cnblogs_c1" class="c_ad_block">
+<div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;" data-google-query-id="CPjp_9vH098CFU46lgodligAkA">
+<script>
+if(canShowAdsense()) {
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1546353474406-0'); });
+}
+</script>
+<div id="google_ads_iframe_/1090369/C1_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/1090369/C1_0" title="3rd party ad content" name="google_ads_iframe_/1090369/C1_0" width="300" height="250" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="border: 0px; vertical-align: bottom;" data-google-container-id="1" data-load-complete="true" src="./【mysql】linux下安装mysql - 半生归来 - 博客园_files/saved_resource.html"></iframe></div></div>
+</div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>相关博文：</b><br>·  <a href="https://www.cnblogs.com/zhouwenwu/archive/2011/12/26/2301438.html" target="_blank" onclick="clickRecomItmem(2301438,&#39;I1iMbj/kZKonPaQ2/H+FE0H3fL7GtIr+HXsNGAWmmYmS1qW0Nqi+RdobzqnOxuAGmegpYEdwaouZaZvNTWDjwacvmDYDuzL9F1s9PmIY9SI+IVgOmQnuf8joNZcfBYVnvu8fN1fvPV0ZS4RK4WvM94fIePRdjV0/vKkvqJ8YksSGyTBo8wW9kIFjYrQm8iU=&#39;)">Linux下安装MySQL</a><br>·  <a href="https://www.cnblogs.com/hdnav/p/7750885.html" target="_blank" onclick="clickRecomItmem(7750885,&#39;kYfgCYw2ZMrOqUcZ1xfdhTAXm5TjmJJX9O0SK/5gDV3nLE8VHQXXMjzDYV2C7w28pWNTgob5xI5JtkoSYbfIUgNrM+nIdQ3FMtaJSBgbElN5FHwL93Y5HSMaqD6llueTqHxu58pGlKd19oZGnubyHBcTfD34u6Bw/hQbbOWkZlS+wSM=&#39;)">Linux下安装mysql</a><br>·  <a href="https://www.cnblogs.com/yangyang12138/p/7586592.html" target="_blank" onclick="clickRecomItmem(7586592,&#39;8R/rE0JlJwpyF1ab2rRW3bmvDiYitXkbIab1BjV/u2zYIMC26/juVKkdm2t5G5WkGAzggOBd4Hoq1LK+cjERG7hr6RfuQ4qLl9EfIFJUNdk2KWdvvPfh6JE+5SW3SKkzz4PMf/51ASAqb74tDYpRsopYoBcv7fff0Ig7zlPEV1Vd0xZeE83+4UeyUgYKLPAabA==&#39;)">linux下安装mysql</a><br>·  <a href="https://www.cnblogs.com/godeyes/p/10031339.html" target="_blank" onclick="clickRecomItmem(10031339,&#39;VKQShl5Kk7twm0txvXtNuVTby+teY09DWHbI/Jmbz/3st6HhzZXTiP8eY9cbUZLm0AgbJn8nrlW1R6soIR9lE4ur3U+Hv03OswzdzlDuS/MjuZmbAgxTKrBKyJahiAkWj6Uk64f9PAzeFP+mcIX5GMDAJYGtucsiaMjL4Q/lbfKMOQc=&#39;)">Linux下Mysql安装</a><br>·  <a href="https://www.cnblogs.com/LHWorldBlog/p/8289785.html" target="_blank" onclick="clickRecomItmem(8289785,&#39;UbZV0GlZF33XiKqDq/Ve0e+38FwYMpUMQw25hsFLj0Ok49ipSXF0R0BSf7McQS13Kf2alPFRcsTzoTIz1sAaumzEwKBGh3X2yRt6VlCMsy5X08YoU/VkmmJcg3qZmWTQXwCkZMGdzvdxWJRB47gYoz3ggI2vRGRDvQkyZX9/8FMDzYPa/jG3TZPy+tBswDObzQ==&#39;)">Mysql篇--Linux中安装Mysql</a><br></div></div>
+<div id="cnblogs_c2" class="c_ad_block">
+    <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;" data-google-query-id="CK6i_tvH098CFdeWvQodOUgEjA">
+    <script>
+    if(canShowAdsense()) {
+        googletag.cmd.push(function() { googletag.display('div-gpt-ad-1539008685004-0'); });
+    }
+    </script>
+    <div id="google_ads_iframe_/1090369/C2_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/1090369/C2_0" title="3rd party ad content" name="google_ads_iframe_/1090369/C2_0" width="468" height="60" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="border: 0px; vertical-align: bottom;" data-google-container-id="2" data-load-complete="true" src="./【mysql】linux下安装mysql - 半生归来 - 博客园_files/saved_resource(1).html"></iframe></div></div>
+</div>
+<div id="under_post_kb"><div class="itnews c_ad_block"><b>最新新闻</b>：<br> ·  <a href="https://news.cnblogs.com/n/616488/" target="_blank">下沉市场背后的真实中国</a><br> ·  <a href="https://news.cnblogs.com/n/616492/" target="_blank">瑞幸乌托邦 资本咖啡的泡沫？</a><br> ·  <a href="https://news.cnblogs.com/n/616491/" target="_blank">2019年手机厂商的难题：5G要来，跟还是不跟？</a><br> ·  <a href="https://news.cnblogs.com/n/616490/" target="_blank">滴滴出行的2018：战争、扩张与危机</a><br> ·  <a href="https://news.cnblogs.com/n/616485/" target="_blank">算上玉兔二号，月亮上现在有多少辆车？</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"><div id="profile_block">昵称：<a href="https://home.cnblogs.com/u/caiyunyun/">半生归来</a><br>园龄：<a href="https://home.cnblogs.com/u/caiyunyun/" title="入园时间：2016-01-05">2年11个月</a><br>粉丝：<a href="https://home.cnblogs.com/u/caiyunyun/followers/">1</a><br>关注：<a href="https://home.cnblogs.com/u/caiyunyun/followees/">5</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="follow(&#39;ba0402db-62b3-e511-9fc1-ac853d9f53cc&#39;)">+加关注</a></div><script>getFollowStatus('ba0402db-62b3-e511-9fc1-ac853d9f53cc')</script></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style=""><table id="blogCalendar" class="Cal" cellspacing="0" cellpadding="0" title="Calendar">
+	<tbody><tr><td colspan="7"><table class="CalTitle" cellspacing="0">
+		<tbody><tr><td class="CalNextPrev"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2018/12/01&#39;);return false;">&lt;</a></td><td align="center">2019年1月</td><td class="CalNextPrev" align="right"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2019/02/01&#39;);return false;">&gt;</a></td></tr>
+	</tbody></table></td></tr><tr><th class="CalDayHeader" align="center" abbr="日" scope="col">日</th><th class="CalDayHeader" align="center" abbr="一" scope="col">一</th><th class="CalDayHeader" align="center" abbr="二" scope="col">二</th><th class="CalDayHeader" align="center" abbr="三" scope="col">三</th><th class="CalDayHeader" align="center" abbr="四" scope="col">四</th><th class="CalDayHeader" align="center" abbr="五" scope="col">五</th><th class="CalDayHeader" align="center" abbr="六" scope="col">六</th></tr><tr><td class="CalOtherMonthDay" align="center">30</td><td class="CalOtherMonthDay" align="center">31</td><td align="center">1</td><td align="center">2</td><td align="center">3</td><td class="CalTodayDay" align="center">4</td><td class="CalWeekendDay" align="center">5</td></tr><tr><td class="CalWeekendDay" align="center">6</td><td align="center">7</td><td align="center">8</td><td align="center">9</td><td align="center">10</td><td align="center">11</td><td class="CalWeekendDay" align="center">12</td></tr><tr><td class="CalWeekendDay" align="center">13</td><td align="center">14</td><td align="center">15</td><td align="center">16</td><td align="center">17</td><td align="center">18</td><td class="CalWeekendDay" align="center">19</td></tr><tr><td class="CalWeekendDay" align="center">20</td><td align="center">21</td><td align="center">22</td><td align="center">23</td><td align="center">24</td><td align="center">25</td><td class="CalWeekendDay" align="center">26</td></tr><tr><td class="CalWeekendDay" align="center">27</td><td align="center">28</td><td align="center">29</td><td align="center">30</td><td align="center">31</td><td class="CalOtherMonthDay" align="center">1</td><td class="CalOtherMonthDay" align="center">2</td></tr><tr><td class="CalOtherMonthDay" align="center">3</td><td class="CalOtherMonthDay" align="center">4</td><td class="CalOtherMonthDay" align="center">5</td><td class="CalOtherMonthDay" align="center">6</td><td class="CalOtherMonthDay" align="center">7</td><td class="CalOtherMonthDay" align="center">8</td><td class="CalOtherMonthDay" align="center">9</td></tr>
+</tbody></table></div><script type="text/javascript">loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block">
+<div id="sidebar_search" class="mySearch">
+<h3 class="catListTitle">搜索</h3>
+<div id="sidebar_search_box">
+<div id="widget_my_zzk" class="div_my_zzk"><input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk"></div>
+<div id="widget_my_google" class="div_my_zzk"><input type="text" name="google_q" id="google_q" onkeydown="return google_go_enter(event)" class="input_my_zzk">&nbsp;<input onclick="google_go()" type="button" value="谷歌搜索" class="btn_my_zzk"></div>
+</div>
+</div>
+
+</div><div id="sidebar_shortcut" class="sidebar-block">
+<div class="catListLink">
+<h3 class="catListTitle">常用链接</h3>
+<ul>
+<li><a href="https://www.cnblogs.com/caiyunyun/p/" title="我的博客的随笔列表">我的随笔</a></li><li><a href="https://www.cnblogs.com/caiyunyun/MyComments.html" title="我发表过的评论列表">我的评论</a></li><li><a href="https://www.cnblogs.com/caiyunyun/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li><li><a href="https://www.cnblogs.com/caiyunyun/RecentComments.html" title="我的博客的评论列表">最新评论</a></li><li><a href="https://www.cnblogs.com/caiyunyun/tag/" title="我的博客的标签列表">我的标签</a></li>
+</ul>
+<div id="itemListLin_con" style="display:none;">
+<ul>
+
+</ul>
+</div>
+</div></div><div id="sidebar_toptags" class="sidebar-block"></div><div id="sidebar_categories">
+<div id="sidebar_postcategory" class="catListPostCategory sidebar-block">
+<h3 class="catListTitle">随笔分类</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_0_Link_0" href="https://www.cnblogs.com/caiyunyun/category/780096.html">Linux(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_1" href="https://www.cnblogs.com/caiyunyun/category/780098.html">Mysql(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_2" href="https://www.cnblogs.com/caiyunyun/category/780097.html">Nginx</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_3" href="https://www.cnblogs.com/caiyunyun/category/780095.html">PHP(2)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_4" href="https://www.cnblogs.com/caiyunyun/category/783828.html">成长历程(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_5" href="https://www.cnblogs.com/caiyunyun/category/1079992.html">大数据</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_6" href="https://www.cnblogs.com/caiyunyun/category/780099.html">内功心法(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_7" href="https://www.cnblogs.com/caiyunyun/category/780100.html">软件工程</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_8" href="https://www.cnblogs.com/caiyunyun/category/1076978.html">设计思想(3)</a> </li>
+
+</ul>
+
+</div>
+
+<div id="sidebar_postarchive" class="catListPostArchive sidebar-block">
+<h3 class="catListTitle">随笔档案</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_1_Link_0" href="https://www.cnblogs.com/caiyunyun/archive/2017/09.html">2017年9月 (6)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_1" href="https://www.cnblogs.com/caiyunyun/archive/2016/01.html">2016年1月 (2)</a> </li>
+
+</ul>
+
+</div>
+
+</div><div id="sidebar_recentcomments" class="sidebar-block"><div id="recent_comments_wrap">
+<div class="catListComment">
+<h3 class="catListTitle">最新评论</h3>
+
+	<div id="RecentCommentsBlock"><ul>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/caiyunyun/p/7492373.html#4049756">1. Re:【mysql】linux下安装mysql</a></li>
+        <li class="recent_comment_body">wurenzhidi</li>
+        <li class="recent_comment_author">--酒夜狸</li>
+</ul>
+</div>
+</div>
+</div></div><div id="sidebar_topviewedposts" class="sidebar-block"><div id="topview_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">阅读排行榜</h3>
+	<div id="TopViewPostsBlock"><ul><li><a href="https://www.cnblogs.com/caiyunyun/p/7492373.html">1. 【mysql】linux下安装mysql(15723)</a></li><li><a href="https://www.cnblogs.com/caiyunyun/p/7492323.html">2. 【php】安装mysql扩展(87)</a></li><li><a href="https://www.cnblogs.com/caiyunyun/p/7491575.html">3. 【php】php-fpm注册service服务(47)</a></li><li><a href="https://www.cnblogs.com/caiyunyun/p/7506610.html">4. 【设计思想】依赖注入(45)</a></li><li><a href="https://www.cnblogs.com/caiyunyun/p/7512110.html">5. 【设计思想】工厂模式(26)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topcommentedposts" class="sidebar-block"><div id="topfeedback_posts_wrap">
+<div class="catListFeedback">
+<h3 class="catListTitle">评论排行榜</h3>
+	<div id="TopFeedbackPostsBlock"><ul><li><a href="https://www.cnblogs.com/caiyunyun/p/7492373.html">1. 【mysql】linux下安装mysql(1)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topdiggedposts" class="sidebar-block"><div id="topdigg_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">推荐排行榜</h3>
+<div id="TopDiggPostsBlock"><ul><li><a href="https://www.cnblogs.com/caiyunyun/p/7506610.html">1. 【设计思想】依赖注入(1)</a></li></ul></div>
+</div></div></div></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright ©2019 半生归来
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+<iframe id="google_osd_static_frame_6469306418311" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;" src="./【mysql】linux下安装mysql - 半生归来 - 博客园_files/saved_resource(2).html"></iframe></body></html>

@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://www.cnblogs.com/drizzle-xu/p/9713071.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="origin">
+<title>mysql主从不同步、数据不一致解决办法 - 裸奔的小鸵鸟 - 博客园</title>
+<meta property="og:description" content="第一种:通过sql_slave_skip_counter跳过同步错误，适用于一般异常如插入时主键冲突 这种情况一般是在从库进行了写操作，错误提示 Last_SQL_Errno: 1062 Last_S">
+<link type="text/css" rel="stylesheet" href="./mysql主从不同步、数据不一致解决办法 - 裸奔的小鸵鸟 - 博客园_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="./mysql主从不同步、数据不一致解决办法 - 裸奔的小鸵鸟 - 博客园_files/bundle-ThinkInside.css">
+<link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="./mysql主从不同步、数据不一致解决办法 - 裸奔的小鸵鸟 - 博客园_files/bundle-ThinkInside-mobile.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/drizzle-xu/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/drizzle-xu/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/drizzle-xu/wlwmanifest.xml">
+<script src="./mysql主从不同步、数据不一致解决办法 - 裸奔的小鸵鸟 - 博客园_files/f.txt"></script><script src="./mysql主从不同步、数据不一致解决办法 - 裸奔的小鸵鸟 - 博客园_files/amp4ads-host-v0.js.下载"></script><script src="./mysql主从不同步、数据不一致解决办法 - 裸奔的小鸵鸟 - 博客园_files/pubads_impl_rendering_285.js.下载"></script><script async="" src="./mysql主从不同步、数据不一致解决办法 - 裸奔的小鸵鸟 - 博客园_files/analytics.js.下载"></script><script src="./mysql主从不同步、数据不一致解决办法 - 裸奔的小鸵鸟 - 博客园_files/jquery-2.2.0.min.js.下载"></script>
+<script type="text/javascript">var currentBlogApp = 'drizzle-xu', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="./mysql主从不同步、数据不一致解决办法 - 裸奔的小鸵鸟 - 博客园_files/blog-common.js.下载" type="text/javascript"></script>
+<link rel="preload" href="./mysql主从不同步、数据不一致解决办法 - 裸奔的小鸵鸟 - 博客园_files/f(1).txt" as="script"><script type="text/javascript" src="./mysql主从不同步、数据不一致解决办法 - 裸奔的小鸵鸟 - 博客园_files/f(1).txt"></script><script src="./mysql主从不同步、数据不一致解决办法 - 裸奔的小鸵鸟 - 博客园_files/pubads_impl_285.js.下载" async=""></script><link rel="prefetch" href="https://tpc.googlesyndication.com/safeframe/1-0-31/html/container.html"></head>
+<body>
+<a name="top"></a>
+
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+	<a id="lnkBlogLogo" href="https://www.cnblogs.com/drizzle-xu/"><img id="blogLogo" src="./mysql主从不同步、数据不一致解决办法 - 裸奔的小鸵鸟 - 博客园_files/logo.gif" alt="返回主页"></a>			
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="https://www.cnblogs.com/drizzle-xu/">裸奔的小鸵鸟</a></h1>
+<h2></h2>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">博客园</a></li>
+<li><a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/drizzle-xu/">首页</a></li>
+<li><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+<li><a id="blog_nav_contact" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/%E8%A3%B8%E5%A5%94%E7%9A%84%E5%B0%8F%E9%B8%B5%E9%B8%9F">联系</a></li>
+<li><a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/drizzle-xu/rss">订阅</a>
+<!--<a id="blog_nav_rss_image" class="aHeaderXML" href="https://www.cnblogs.com/drizzle-xu/rss"><img src="//www.cnblogs.com/images/xml.gif" alt="订阅" /></a>--></li>
+<li><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+</ul>
+		<div class="blogStats">
+			
+			<div id="blog_stats">
+<span id="stats_post_count">随笔 - 71&nbsp; </span>
+<span id="stats_article_count">文章 - 4&nbsp; </span>
+<span id="stats-comment_count">评论 - 0</span>
+</div>
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class="post">
+		<h1 class="postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/drizzle-xu/p/9713071.html">mysql主从不同步、数据不一致解决办法</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body" class="blogpost-body"><p><strong>第一种:通过sql_slave_skip_counter跳过同步错误，适用于一般异常如插入时主键冲突</strong></p>
+<p>这种情况一般是在从库进行了写操作，错误提示</p>
+<p>Last_SQL_Errno: 1062</p>
+<p>Last_SQL_Error: Error 'Duplicate entry '14' for key 'PRIMARY'' on query. Default database: 'hadoop'. Query: 'INSERT INTO `user` (`username`, `password`) VALUES ('b', 'b')'<br>
+1 row in set (0.00 sec)</p>
+<p>如果提示</p>
+<p>Last_SQL_Errno: 126<br>
+Last_SQL_Error: Error 'Incorrect key file for table './hadoop/user.MYI'; try to repair it' on query. Default database: 'hadoop'. Query: 'INSERT INTO `user` (`username`, `password`) VALUES ('c', 'c')'</p>
+<p>则先修复下表repair table user;再继续下面的操作</p>
+<p>&nbsp;</p>
+<p>从库执行:</p>
+<ol class="hljs-ln">
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line"><span class="hljs-comment">#停止slave服务</span></div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">mysql&gt; stop slave;</div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">Query OK, <span class="hljs-number">0 rows affected, <span class="hljs-number">1 warning (<span class="hljs-number">0.00 sec)</span></span></span></div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line"><span class="hljs-comment">#跳过一步错误，后面的数字可变，如果还不行可执行多次</span></div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">mysql&gt; set <span class="hljs-keyword">global sql_slave_skip_counter =<span class="hljs-number">1;</span></span></div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">Query OK, <span class="hljs-number">0 rows affected (<span class="hljs-number">0.00 sec)</span></span></div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line"><span class="hljs-comment">#开始slave服务</span></div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">mysql&gt; start slave;</div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">Query OK, <span class="hljs-number">0 rows affected (<span class="hljs-number">0.00 sec)</span></span></div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line"><span class="hljs-comment">#查看slave状态</span></div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">mysql&gt; show slave status\G</div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">*************************** <span class="hljs-number">1. row ***************************</span></div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">               Slave_IO_State: Waiting <span class="hljs-keyword">for master to send event</span></div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">                  Master_Host: <span class="hljs-number">192.168<span class="hljs-number">.20<span class="hljs-number">.195</span></span></span></div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">                  Master_User: test</div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">                  Master_Port: <span class="hljs-number">3306</span></div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">                Connect_Retry: <span class="hljs-number">60</span></div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">              Master_Log_File: mysql-bin<span class="hljs-number">.000004</span></div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">          Read_Master_Log_Pos: <span class="hljs-number">251</span></div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">               Relay_Log_File: mysqld-relay-bin<span class="hljs-number">.000006</span></div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">                Relay_Log_Pos: <span class="hljs-number">251</span></div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">        Relay_Master_Log_File: mysql-bin<span class="hljs-number">.000004</span></div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">             Slave_IO_Running: Yes</div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">            Slave_SQL_Running: Yes</div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">              Replicate_Do_DB:</div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">          Replicate_Ignore_DB:</div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">           Replicate_Do_Table:</div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">       Replicate_Ignore_Table:</div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">      Replicate_Wild_Do_Table:</div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">  Replicate_Wild_Ignore_Table: mysql.%,information_schema.%,performance_schema.%</div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">                   Last_Errno: <span class="hljs-number">0</span></div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">                   Last_Error:</div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">                 Skip_Counter: <span class="hljs-number">1</span></div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">          Exec_Master_Log_Pos: <span class="hljs-number">251</span></div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">              Relay_Log_Space: <span class="hljs-number">552</span></div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">              Until_Condition: <span class="hljs-keyword">None</span></div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">               Until_Log_File:</div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">                Until_Log_Pos: <span class="hljs-number">0</span></div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">           Master_SSL_Allowed: No</div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">           Master_SSL_CA_File:</div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">           Master_SSL_CA_Path:</div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">              Master_SSL_Cert:</div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">            Master_SSL_Cipher:</div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">               Master_SSL_Key:</div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">        Seconds_Behind_Master: <span class="hljs-number">0</span></div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">Master_SSL_Verify_Server_Cert: No</div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">                Last_IO_Errno: <span class="hljs-number">0</span></div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">                Last_IO_Error:</div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">               Last_SQL_Errno: <span class="hljs-number">0</span></div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">               Last_SQL_Error:</div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line"><span class="hljs-number">1 row <span class="hljs-keyword">in set (<span class="hljs-number">0.00 sec)</span></span></span></div>
+
+
+</div>
+
+
+</li>
+
+
+</ol>
+<p><br><strong>第二种:重新做主从，然后使用change master指定同步位置，这种耗时长</strong><br>
+主库执行：</p>
+<ol class="hljs-ln">
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">mysql&gt; flush tables <span class="hljs-keyword">with read lock; </span></div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">[root@hd3 ~]<span class="hljs-comment"># mysqldump -uroot -p123456 --lock-all-tables --flush-logs hadoop &gt; /data/hadoop.sql</span></div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">[root@hd3 ~]<span class="hljs-comment"># scp /data/hadoop.sql root@192.168.20.201:/data/</span></div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">mysql&gt; unlock tables;</div>
+
+
+</div>
+
+
+</li>
+
+
+</ol>
+<p>从库执行:</p>
+<ol class="hljs-ln">
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">mysql&gt; stop slave;</div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">Query OK, <span class="hljs-number">0 rows affected (<span class="hljs-number">0.00 sec)</span></span></div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">mysql&gt; reset slave;</div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">Query OK, <span class="hljs-number">0 rows affected (<span class="hljs-number">0.01 sec)</span></span></div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">mysql&gt; source /data/hadoop.sql</div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">mysql&gt; change master to master_host=<span class="hljs-string">'192.168.20.195', master_port=<span class="hljs-number">3306, master_user=<span class="hljs-string">'test',master_password=<span class="hljs-string">'123456', master_log_file=<span class="hljs-string">'mysql-bin.000003',master_log_pos=<span class="hljs-number">932;</span></span></span></span></span></span></div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">Query OK, <span class="hljs-number">0 rows affected (<span class="hljs-number">0.03 sec)</span></span></div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">mysql&gt; start slave;</div>
+
+
+</div>
+
+
+</li>
+<li>
+<div class="hljs-ln-numbers">&nbsp;</div>
+<div class="hljs-ln-code">
+<div class="hljs-ln-line">Query OK, <span class="hljs-number">0 rows affected (<span class="hljs-number">0.00 sec)</span></span></div>
+
+
+</div>
+
+
+</li>
+
+
+</ol>
+<p><br>
+第三种：使用第三方工具如pt-table-sync&nbsp;</p></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag">标签: <a href="https://www.cnblogs.com/drizzle-xu/tag/MySQL%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/">MySQL知识总结</a></div>
+<div id="blog_post_info"><div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(9713071,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+            <a id="green_channel_follow" onclick="follow(&#39;eba9ed3c-6b93-4001-f117-08d58662b770&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./mysql主从不同步、数据不一致解决办法 - 裸奔的小鸵鸟 - 博客园_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./mysql主从不同步、数据不一致解决办法 - 裸奔的小鸵鸟 - 博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/drizzle-xu/" target="_blank"><img src="./mysql主从不同步、数据不一致解决办法 - 裸奔的小鸵鸟 - 博客园_files/20180417115557.png" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/drizzle-xu/">裸奔的小鸵鸟</a><br>
+            <a href="http://home.cnblogs.com/u/drizzle-xu/followees">关注 - 11</a><br>
+            <a href="http://home.cnblogs.com/u/drizzle-xu/followers">粉丝 - 0</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow(&#39;eba9ed3c-6b93-4001-f117-08d58662b770&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(9713071,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">0</span>
+    </div>
+    <div class="buryit" onclick="votePost(9713071,&#39;Bury&#39;)">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+<script type="text/javascript">
+    currentDiggType = 0;
+</script></div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="https://www.cnblogs.com/drizzle-xu/p/9713059.html" class="p_n_p_prefix">« </a> 上一篇：<a href="https://www.cnblogs.com/drizzle-xu/p/9713059.html" title="发布于2018-09-27 14:54">MySQL的主从复制步骤详解及常见错误解决方法</a><br><a href="https://www.cnblogs.com/drizzle-xu/p/9713084.html" class="p_n_p_prefix">» </a> 下一篇：<a href="https://www.cnblogs.com/drizzle-xu/p/9713084.html" title="发布于2018-09-27 14:57">pt-table-sync修复mysql主从不一致的数据</a><br></div>
+</div>
+
+
+		</div>
+		<div class="postDesc">posted @ <span id="post-date">2018-09-27 14:55</span> <a href="https://www.cnblogs.com/drizzle-xu/">裸奔的小鸵鸟</a> 阅读(<span id="post_view_count">65</span>) 评论(<span id="post_comment_count">0</span>)  <a href="https://i.cnblogs.com/EditPosts.aspx?postid=9713071" rel="nofollow">编辑</a> <a href="https://www.cnblogs.com/drizzle-xu/p/9713071.html#" onclick="AddToWz(9713071);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=428259,cb_entryId=9713071,cb_blogApp=currentBlogApp,cb_blogUserGuid='eba9ed3c-6b93-4001-f117-08d58662b770',cb_entryCreatedDate='2018/9/27 14:55:00';loadViewCount(cb_entryId);var cb_postType=1;</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="https://www.cnblogs.com/drizzle-xu/p/9713071.html#" onclick="return RefreshPage();">刷新页面</a><a href="https://www.cnblogs.com/drizzle-xu/p/9713071.html#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-工控&#39;)">【推荐】超50万VC++源码: 大型组态工控、电力仿真CAD与GIS源码库！</a><br></div>
+<div id="opt_under_post"></div>
+<script async="async" src="./mysql主从不同步、数据不一致解决办法 - 裸奔的小鸵鸟 - 博客园_files/gpt.js.下载"></script>
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+<script>
+  googletag.cmd.push(function() {
+        googletag.defineSlot('/1090369/C1', [300, 250], 'div-gpt-ad-1546353474406-0').addService(googletag.pubads());
+        googletag.defineSlot('/1090369/C2', [468, 60], 'div-gpt-ad-1539008685004-0').addService(googletag.pubads());
+        googletag.pubads().enableSingleRequest();
+        googletag.enableServices();
+  });
+</script>
+<div id="cnblogs_c1" class="c_ad_block">
+<div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;" data-google-query-id="CNPDg53F098CFQV0YAodVDYDxA">
+<script>
+if(canShowAdsense()) {
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1546353474406-0'); });
+}
+</script>
+<div id="google_ads_iframe_/1090369/C1_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/1090369/C1_0" title="3rd party ad content" name="google_ads_iframe_/1090369/C1_0" width="300" height="250" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="border: 0px; vertical-align: bottom;" data-google-container-id="1" data-load-complete="true" src="./mysql主从不同步、数据不一致解决办法 - 裸奔的小鸵鸟 - 博客园_files/saved_resource.html"></iframe></div></div>
+</div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>相关博文：</b><br>·  <a href="https://www.cnblogs.com/Ofsoul/p/8040280.html" target="_blank" onclick="clickRecomItmem(8040280,&#39;ONp1se5yialzQVgY3tLYbA2xWrloyYlgXKbyoInNoRCJHF3lg9Ws/DSRVBdX1wKRogfP6oiE1y22cddCO83RMQwgyyjRhhCAJr9utMttJTiMEnCKa2YRIuGs0hlhAPw0okzEeThlRr8dWn8eetc=&#39;)">mysql 主从不同步问题</a><br>·  <a href="https://www.cnblogs.com/huminxxl/p/3978581.html" target="_blank" onclick="clickRecomItmem(3978581,&#39;/R0Y5dT+fKHyjI6dCPX/u0RRgivMkcZwxH5pjM6+S0b2z+Hrr4URhwS5qivVq8dLmCOA9ujrNLRBSlCwNGkkSSwvPKH5GHZKEtQvDGSlyQb09tidJHlfUZI6JuWP5R6sT/QJLOBQP1u9Jdlj4pM=&#39;)">pt-table-sync修复mysql主从不一致的数据</a><br>·  <a href="https://www.cnblogs.com/Qing-840/p/5501444.html" target="_blank" onclick="clickRecomItmem(5501444,&#39;yUIzskOXZOtvEkFO6MS9aNi0aIGzTeUo2tGIA/XNjtj4N40WmQKMnUb3Lq5dMjbPDWgieL06iIT/zePWiQVSGnpcOK9Po3+zxX+JLh99FwTazqYttJAp+2KOfspihRBJOZT3byBQzQ7uO6jj8z8=&#39;)">mysql 主从 数据不一致</a><br>·  <a href="https://www.cnblogs.com/logo-fox/p/7559987.html" target="_blank" onclick="clickRecomItmem(7559987,&#39;ubrJuAPWTSQcQXL+C3/enoEj49Z+ntBqz7iWEhJgjg0dnOcex0Byb8wI5pqNV7aUDTni0QP/qpJnivU6AzXVEwhAGDt1YX11VxJl1YICEMiOznS7KodnCKcPvPsSI1HRzF9g36nTfpRFJ8P6oL0=&#39;)">解决mysql 主从数据库同步不一致的方法</a><br>·  <a href="https://www.cnblogs.com/youhunyimeng/p/4546582.html" target="_blank" onclick="clickRecomItmem(4546582,&#39;tR7r9oVZQV77I3xNErDRmCbHCqgvG2J2gTWo2c24DP2/2YNbGiErlvG19/Z5XukLj+U6zG3rZe4nmj9k9sYVC+YZXb352NFqwSFpN4huMAhWglNkleYJXNYlQHqUCCXyihCsSISy/vuWZxmfEoA=&#39;)">mysql主从不一致解决方法</a><br></div></div>
+<div id="cnblogs_c2" class="c_ad_block">
+    <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;" data-google-query-id="CIGUgp3F098CFcUZKgod4-0GaQ">
+    <script>
+    if(canShowAdsense()) {
+        googletag.cmd.push(function() { googletag.display('div-gpt-ad-1539008685004-0'); });
+    }
+    </script>
+    <div id="google_ads_iframe_/1090369/C2_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/1090369/C2_0" title="3rd party ad content" name="google_ads_iframe_/1090369/C2_0" width="468" height="60" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="border: 0px; vertical-align: bottom;" data-google-container-id="2" data-load-complete="true" src="./mysql主从不同步、数据不一致解决办法 - 裸奔的小鸵鸟 - 博客园_files/saved_resource(1).html"></iframe></div></div>
+</div>
+<div id="under_post_kb"><div class="itnews c_ad_block"><b>最新新闻</b>：<br> ·  <a href="https://news.cnblogs.com/n/616488/" target="_blank">下沉市场背后的真实中国</a><br> ·  <a href="https://news.cnblogs.com/n/616492/" target="_blank">瑞幸乌托邦 资本咖啡的泡沫？</a><br> ·  <a href="https://news.cnblogs.com/n/616491/" target="_blank">2019年手机厂商的难题：5G要来，跟还是不跟？</a><br> ·  <a href="https://news.cnblogs.com/n/616490/" target="_blank">滴滴出行的2018：战争、扩张与危机</a><br> ·  <a href="https://news.cnblogs.com/n/616485/" target="_blank">算上玉兔二号，月亮上现在有多少辆车？</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"><div id="profile_block">昵称：<a href="https://home.cnblogs.com/u/drizzle-xu/">裸奔的小鸵鸟</a><br>园龄：<a href="https://home.cnblogs.com/u/drizzle-xu/" title="入园时间：2018-04-17">8个月</a><br>粉丝：<a href="https://home.cnblogs.com/u/drizzle-xu/followers/">0</a><br>关注：<a href="https://home.cnblogs.com/u/drizzle-xu/followees/">11</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="follow(&#39;eba9ed3c-6b93-4001-f117-08d58662b770&#39;)">+加关注</a></div><script>getFollowStatus('eba9ed3c-6b93-4001-f117-08d58662b770')</script></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style=""><table id="blogCalendar" class="Cal" cellspacing="0" cellpadding="0" title="Calendar">
+	<tbody><tr><td colspan="7"><table class="CalTitle" cellspacing="0">
+		<tbody><tr><td class="CalNextPrev"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2018/12/01&#39;);return false;">&lt;</a></td><td align="center">2019年1月</td><td class="CalNextPrev" align="right"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2019/02/01&#39;);return false;">&gt;</a></td></tr>
+	</tbody></table></td></tr><tr><th class="CalDayHeader" align="center" abbr="日" scope="col">日</th><th class="CalDayHeader" align="center" abbr="一" scope="col">一</th><th class="CalDayHeader" align="center" abbr="二" scope="col">二</th><th class="CalDayHeader" align="center" abbr="三" scope="col">三</th><th class="CalDayHeader" align="center" abbr="四" scope="col">四</th><th class="CalDayHeader" align="center" abbr="五" scope="col">五</th><th class="CalDayHeader" align="center" abbr="六" scope="col">六</th></tr><tr><td class="CalOtherMonthDay" align="center">30</td><td class="CalOtherMonthDay" align="center">31</td><td align="center">1</td><td align="center">2</td><td align="center">3</td><td class="CalTodayDay" align="center"><a href="https://www.cnblogs.com/drizzle-xu/archive/2019/01/04.html"><u>4</u></a></td><td class="CalWeekendDay" align="center">5</td></tr><tr><td class="CalWeekendDay" align="center">6</td><td align="center">7</td><td align="center">8</td><td align="center">9</td><td align="center">10</td><td align="center">11</td><td class="CalWeekendDay" align="center">12</td></tr><tr><td class="CalWeekendDay" align="center">13</td><td align="center">14</td><td align="center">15</td><td align="center">16</td><td align="center">17</td><td align="center">18</td><td class="CalWeekendDay" align="center">19</td></tr><tr><td class="CalWeekendDay" align="center">20</td><td align="center">21</td><td align="center">22</td><td align="center">23</td><td align="center">24</td><td align="center">25</td><td class="CalWeekendDay" align="center">26</td></tr><tr><td class="CalWeekendDay" align="center">27</td><td align="center">28</td><td align="center">29</td><td align="center">30</td><td align="center">31</td><td class="CalOtherMonthDay" align="center">1</td><td class="CalOtherMonthDay" align="center">2</td></tr><tr><td class="CalOtherMonthDay" align="center">3</td><td class="CalOtherMonthDay" align="center">4</td><td class="CalOtherMonthDay" align="center">5</td><td class="CalOtherMonthDay" align="center">6</td><td class="CalOtherMonthDay" align="center">7</td><td class="CalOtherMonthDay" align="center">8</td><td class="CalOtherMonthDay" align="center">9</td></tr>
+</tbody></table></div><script type="text/javascript">loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block">
+<div id="sidebar_search" class="mySearch">
+<h3 class="catListTitle">搜索</h3>
+<div id="sidebar_search_box">
+<div id="widget_my_zzk" class="div_my_zzk"><input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk"></div>
+<div id="widget_my_google" class="div_my_zzk"><input type="text" name="google_q" id="google_q" onkeydown="return google_go_enter(event)" class="input_my_zzk">&nbsp;<input onclick="google_go()" type="button" value="谷歌搜索" class="btn_my_zzk"></div>
+</div>
+</div>
+
+</div><div id="sidebar_shortcut" class="sidebar-block">
+<div class="catListLink">
+<h3 class="catListTitle">常用链接</h3>
+<ul>
+<li><a href="https://www.cnblogs.com/drizzle-xu/p/" title="我的博客的随笔列表">我的随笔</a></li><li><a href="https://www.cnblogs.com/drizzle-xu/MyComments.html" title="我发表过的评论列表">我的评论</a></li><li><a href="https://www.cnblogs.com/drizzle-xu/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li><li><a href="https://www.cnblogs.com/drizzle-xu/RecentComments.html" title="我的博客的评论列表">最新评论</a></li><li><a href="https://www.cnblogs.com/drizzle-xu/tag/" title="我的博客的标签列表">我的标签</a></li>
+</ul>
+<div id="itemListLin_con" style="display:none;">
+<ul>
+
+</ul>
+</div>
+</div></div><div id="sidebar_toptags" class="sidebar-block">
+<div class="catListTag">
+<h3 class="catListTitle">我的标签</h3>
+<ul>
+<li><a href="https://www.cnblogs.com/drizzle-xu/tag/DRDS/">DRDS</a>(45)</li><li><a href="https://www.cnblogs.com/drizzle-xu/tag/MQ/">MQ</a>(30)</li><li><a href="https://www.cnblogs.com/drizzle-xu/tag/MySQL/">MySQL</a>(28)</li><li><a href="https://www.cnblogs.com/drizzle-xu/tag/MySQL%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/">MySQL知识总结</a>(21)</li><li><a href="https://www.cnblogs.com/drizzle-xu/tag/Python/">Python</a>(17)</li><li><a href="https://www.cnblogs.com/drizzle-xu/tag/KUBERNETES/">KUBERNETES</a>(7)</li><li><a href="https://www.cnblogs.com/drizzle-xu/tag/LINUX/">LINUX</a>(3)</li><li><a href="https://www.cnblogs.com/drizzle-xu/tag/MariaDB/">MariaDB</a>(1)</li><li><a href="https://www.cnblogs.com/drizzle-xu/tag/Zabbix/">Zabbix</a>(1)</li><li><a href="https://www.cnblogs.com/drizzle-xu/tag/open-falcon/">open-falcon</a>(1)</li><li><a href="https://www.cnblogs.com/drizzle-xu/tag/">更多</a></li>
+</ul>
+</div></div><div id="sidebar_categories">
+<div id="sidebar_postarchive" class="catListPostArchive sidebar-block">
+<h3 class="catListTitle">随笔档案</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_0_Link_0" href="https://www.cnblogs.com/drizzle-xu/archive/2019/01.html">2019年1月 (5)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_1" href="https://www.cnblogs.com/drizzle-xu/archive/2018/12.html">2018年12月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_2" href="https://www.cnblogs.com/drizzle-xu/archive/2018/11.html">2018年11月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_3" href="https://www.cnblogs.com/drizzle-xu/archive/2018/10.html">2018年10月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_4" href="https://www.cnblogs.com/drizzle-xu/archive/2018/09.html">2018年9月 (21)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_5" href="https://www.cnblogs.com/drizzle-xu/archive/2018/07.html">2018年7月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_6" href="https://www.cnblogs.com/drizzle-xu/archive/2018/06.html">2018年6月 (6)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_7" href="https://www.cnblogs.com/drizzle-xu/archive/2018/05.html">2018年5月 (11)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_8" href="https://www.cnblogs.com/drizzle-xu/archive/2018/04.html">2018年4月 (20)</a> </li>
+
+</ul>
+
+</div>
+
+</div><div id="sidebar_recentcomments" class="sidebar-block"><div id="recent_comments_wrap" style="display: none;">
+<div class="catListComment">
+<h3 class="catListTitle">最新评论</h3>
+
+	<div id="RecentCommentsBlock"></div>
+</div>
+</div></div><div id="sidebar_topviewedposts" class="sidebar-block"><div id="topview_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">阅读排行榜</h3>
+	<div id="TopViewPostsBlock"><ul><li><a href="https://www.cnblogs.com/drizzle-xu/p/9155268.html">1. linux-解决/usr/bin/which: no ssh-copy-id in 和ssh: Could not resolve hostname问题(765)</a></li><li><a href="https://www.cnblogs.com/drizzle-xu/p/aliyun.html">2. MySQL 实例空间使用率过高的原因和解决方法(275)</a></li><li><a href="https://www.cnblogs.com/drizzle-xu/p/9002455.html">3. Python：MySQL拒绝从远程访问的解决方法(261)</a></li><li><a href="https://www.cnblogs.com/drizzle-xu/p/9869406.html">4. MySQL读写IO的操作过程解析(154)</a></li><li><a href="https://www.cnblogs.com/drizzle-xu/p/9100717.html">5. k8s笔记0528-基于KUBERNETES构建企业容器云手动部署集群记录-2(127)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topcommentedposts" class="sidebar-block"><div id="topfeedback_posts_wrap" style="display: none;">
+<div class="catListFeedback">
+<h3 class="catListTitle">评论排行榜</h3>
+	<div id="TopFeedbackPostsBlock"></div>
+</div>
+</div></div><div id="sidebar_topdiggedposts" class="sidebar-block"><div id="topdigg_posts_wrap" style="display: none;">
+<div class="catListView">
+<h3 class="catListTitle">推荐排行榜</h3>
+<div id="TopDiggPostsBlock"></div>
+</div></div></div></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright ©2019 裸奔的小鸵鸟
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+<iframe id="google_osd_static_frame_222721151579" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;" src="./mysql主从不同步、数据不一致解决办法 - 裸奔的小鸵鸟 - 博客园_files/saved_resource(2).html"></iframe></body></html>

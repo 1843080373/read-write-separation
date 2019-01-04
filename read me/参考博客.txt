@@ -1,0 +1,6 @@
+Linux上安装mysql
+https://www.cnblogs.com/caiyunyun/p/7492373.html
+linux下mysql主从复制搭建
+https://www.cnblogs.com/merely/p/9714827.html
+mysql主从不同步、数据不一致解决办法
+https://www.cnblogs.com/drizzle-xu/p/9713071.html
