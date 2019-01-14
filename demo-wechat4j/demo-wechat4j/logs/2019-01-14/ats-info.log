@@ -1,0 +1,335 @@
+2019-01-14 15:09:37.435 [main] INFO  com.wx.DemoWechat4jApplication - Starting DemoWechat4jApplication on Lando with PID 11060 (D:\demo\demo-wechat4j\demo-wechat4j\target\classes started by 紫马 in D:\demo\demo-wechat4j\demo-wechat4j)
+2019-01-14 15:09:37.436 [main] INFO  com.wx.DemoWechat4jApplication - No active profile set, falling back to default profiles: default
+2019-01-14 15:09:38.158 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2019-01-14 15:09:38.158 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.14
+2019-01-14 15:09:38.211 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-01-14 15:09:38.653 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2019-01-14 15:09:38.658 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2019-01-14 15:09:38.667 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-01-14 15:09:38.680 [main] INFO  com.wx.DemoWechat4jApplication - Started DemoWechat4jApplication in 1.427 seconds (JVM running for 2.316)
+2019-01-14 15:11:06.053 [main] INFO  com.wx.DemoWechat4jApplication - Starting DemoWechat4jApplication on Lando with PID 11940 (D:\demo\demo-wechat4j\demo-wechat4j\target\classes started by 紫马 in D:\demo\demo-wechat4j\demo-wechat4j)
+2019-01-14 15:11:06.055 [main] INFO  com.wx.DemoWechat4jApplication - No active profile set, falling back to default profiles: default
+2019-01-14 15:11:06.689 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2019-01-14 15:11:06.689 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.14
+2019-01-14 15:11:06.744 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-01-14 15:11:07.202 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2019-01-14 15:11:07.207 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2019-01-14 15:11:07.216 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-01-14 15:11:07.231 [main] INFO  com.wx.DemoWechat4jApplication - Started DemoWechat4jApplication in 1.344 seconds (JVM running for 1.998)
+2019-01-14 15:12:48.131 [main] INFO  com.wx.DemoWechat4jApplication - Starting DemoWechat4jApplication on Lando with PID 2584 (D:\demo\demo-wechat4j\demo-wechat4j\target\classes started by 紫马 in D:\demo\demo-wechat4j\demo-wechat4j)
+2019-01-14 15:12:48.133 [main] INFO  com.wx.DemoWechat4jApplication - No active profile set, falling back to default profiles: default
+2019-01-14 15:12:48.790 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2019-01-14 15:12:48.791 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.14
+2019-01-14 15:12:48.855 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-01-14 15:12:49.299 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2019-01-14 15:12:49.304 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2019-01-14 15:12:49.312 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-01-14 15:12:49.324 [main] INFO  com.wx.DemoWechat4jApplication - Started DemoWechat4jApplication in 1.378 seconds (JVM running for 2.011)
+2019-01-14 15:13:46.049 [main] INFO  com.wx.DemoWechat4jApplication - Starting DemoWechat4jApplication on Lando with PID 9224 (D:\demo\demo-wechat4j\demo-wechat4j\target\classes started by 紫马 in D:\demo\demo-wechat4j\demo-wechat4j)
+2019-01-14 15:13:46.051 [main] INFO  com.wx.DemoWechat4jApplication - No active profile set, falling back to default profiles: default
+2019-01-14 15:13:46.686 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2019-01-14 15:13:46.686 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.14
+2019-01-14 15:13:46.746 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-01-14 15:13:47.184 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2019-01-14 15:13:47.189 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2019-01-14 15:13:47.198 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-01-14 15:13:47.211 [main] INFO  com.wx.DemoWechat4jApplication - Started DemoWechat4jApplication in 1.325 seconds (JVM running for 1.945)
+2019-01-14 15:18:11.244 [main] INFO  com.wx.DemoWechat4jApplication - Starting DemoWechat4jApplication on Lando with PID 7388 (D:\demo\demo-wechat4j\demo-wechat4j\target\classes started by 紫马 in D:\demo\demo-wechat4j\demo-wechat4j)
+2019-01-14 15:18:11.245 [main] INFO  com.wx.DemoWechat4jApplication - No active profile set, falling back to default profiles: default
+2019-01-14 15:18:11.885 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2019-01-14 15:18:11.886 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.14
+2019-01-14 15:18:11.941 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-01-14 15:18:12.373 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2019-01-14 15:18:12.378 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2019-01-14 15:18:12.386 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2019-01-14 15:18:12.386 [main] INFO  org.apache.catalina.core.StandardService - Stopping service Tomcat
+2019-01-14 15:18:12.391 [main] INFO  org.apache.catalina.util.LifecycleBase - The stop() method was called on component [StandardServer[-1]] after stop() had already been called. The second call will be ignored.
+2019-01-14 15:18:12.391 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2019-01-14 15:18:12.391 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+2019-01-14 15:18:28.224 [main] INFO  com.wx.DemoWechat4jApplication - Starting DemoWechat4jApplication on Lando with PID 14064 (D:\demo\demo-wechat4j\demo-wechat4j\target\classes started by 紫马 in D:\demo\demo-wechat4j\demo-wechat4j)
+2019-01-14 15:18:28.225 [main] INFO  com.wx.DemoWechat4jApplication - No active profile set, falling back to default profiles: default
+2019-01-14 15:18:28.909 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2019-01-14 15:18:28.910 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.14
+2019-01-14 15:18:28.964 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-01-14 15:18:29.396 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2019-01-14 15:18:29.403 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2019-01-14 15:18:29.410 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-01-14 15:18:29.424 [main] INFO  com.wx.DemoWechat4jApplication - Started DemoWechat4jApplication in 1.367 seconds (JVM running for 1.977)
+2019-01-14 15:23:27.796 [main] INFO  com.wx.DemoWechat4jApplication - Starting DemoWechat4jApplication on Lando with PID 6852 (D:\demo\demo-wechat4j\demo-wechat4j\target\classes started by 紫马 in D:\demo\demo-wechat4j\demo-wechat4j)
+2019-01-14 15:23:27.798 [main] INFO  com.wx.DemoWechat4jApplication - No active profile set, falling back to default profiles: default
+2019-01-14 15:23:28.426 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2019-01-14 15:23:28.426 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.14
+2019-01-14 15:23:28.484 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-01-14 15:23:28.931 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2019-01-14 15:23:28.936 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2019-01-14 15:23:28.944 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-01-14 15:23:28.956 [main] INFO  com.wx.DemoWechat4jApplication - Started DemoWechat4jApplication in 1.319 seconds (JVM running for 1.926)
+2019-01-14 15:25:05.013 [main] INFO  com.wx.DemoWechat4jApplication - Starting DemoWechat4jApplication on Lando with PID 6352 (D:\demo\demo-wechat4j\demo-wechat4j\target\classes started by 紫马 in D:\demo\demo-wechat4j\demo-wechat4j)
+2019-01-14 15:25:05.015 [main] INFO  com.wx.DemoWechat4jApplication - No active profile set, falling back to default profiles: default
+2019-01-14 15:25:05.734 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2019-01-14 15:25:05.735 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.14
+2019-01-14 15:25:05.791 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-01-14 15:25:06.261 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2019-01-14 15:25:06.266 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2019-01-14 15:25:06.274 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-01-14 15:25:06.287 [main] INFO  com.wx.DemoWechat4jApplication - Started DemoWechat4jApplication in 1.437 seconds (JVM running for 2.094)
+2019-01-14 15:27:48.050 [http-nio-80-exec-2] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-01-14 15:39:02.711 [main] INFO  com.wx.DemoWechat4jApplication - Starting DemoWechat4jApplication on Lando with PID 2860 (D:\demo\demo-wechat4j\demo-wechat4j\target\classes started by 紫马 in D:\demo\demo-wechat4j\demo-wechat4j)
+2019-01-14 15:39:02.713 [main] INFO  com.wx.DemoWechat4jApplication - No active profile set, falling back to default profiles: default
+2019-01-14 15:39:03.379 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2019-01-14 15:39:03.379 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.14
+2019-01-14 15:39:03.435 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-01-14 15:39:03.911 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2019-01-14 15:39:03.915 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2019-01-14 15:39:03.923 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-01-14 15:39:03.938 [main] INFO  com.wx.DemoWechat4jApplication - Started DemoWechat4jApplication in 1.39 seconds (JVM running for 2.003)
+2019-01-14 15:39:23.746 [http-nio-80-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-01-14 15:39:44.716 [main] INFO  com.wx.DemoWechat4jApplication - Starting DemoWechat4jApplication on Lando with PID 13440 (D:\demo\demo-wechat4j\demo-wechat4j\target\classes started by 紫马 in D:\demo\demo-wechat4j\demo-wechat4j)
+2019-01-14 15:39:44.718 [main] INFO  com.wx.DemoWechat4jApplication - No active profile set, falling back to default profiles: default
+2019-01-14 15:39:45.332 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2019-01-14 15:39:45.333 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.14
+2019-01-14 15:39:45.386 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-01-14 15:39:45.862 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2019-01-14 15:39:45.866 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2019-01-14 15:39:45.874 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-01-14 15:39:45.886 [main] INFO  com.wx.DemoWechat4jApplication - Started DemoWechat4jApplication in 1.33 seconds (JVM running for 1.942)
+2019-01-14 15:40:03.717 [http-nio-80-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-01-14 15:43:33.051 [main] INFO  com.wx.DemoWechat4jApplication - Starting DemoWechat4jApplication on Lando with PID 12704 (D:\demo\demo-wechat4j\demo-wechat4j\target\classes started by 紫马 in D:\demo\demo-wechat4j\demo-wechat4j)
+2019-01-14 15:43:33.052 [main] INFO  com.wx.DemoWechat4jApplication - No active profile set, falling back to default profiles: default
+2019-01-14 15:43:33.666 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2019-01-14 15:43:33.667 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.14
+2019-01-14 15:43:33.717 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-01-14 15:43:34.162 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2019-01-14 15:43:34.167 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2019-01-14 15:43:34.174 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-01-14 15:43:34.187 [main] INFO  com.wx.DemoWechat4jApplication - Started DemoWechat4jApplication in 1.296 seconds (JVM running for 1.908)
+2019-01-14 15:45:11.406 [main] INFO  com.wx.DemoWechat4jApplication - Starting DemoWechat4jApplication on Lando with PID 2984 (D:\demo\demo-wechat4j\demo-wechat4j\target\classes started by 紫马 in D:\demo\demo-wechat4j\demo-wechat4j)
+2019-01-14 15:45:11.407 [main] INFO  com.wx.DemoWechat4jApplication - No active profile set, falling back to default profiles: default
+2019-01-14 15:45:12.025 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2019-01-14 15:45:12.026 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.14
+2019-01-14 15:45:12.079 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-01-14 15:45:12.509 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2019-01-14 15:45:12.513 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2019-01-14 15:45:12.522 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-01-14 15:45:12.534 [main] INFO  com.wx.DemoWechat4jApplication - Started DemoWechat4jApplication in 1.291 seconds (JVM running for 1.903)
+2019-01-14 15:46:31.266 [main] INFO  com.wx.DemoWechat4jApplication - Starting DemoWechat4jApplication on Lando with PID 11496 (D:\demo\demo-wechat4j\demo-wechat4j\target\classes started by 紫马 in D:\demo\demo-wechat4j\demo-wechat4j)
+2019-01-14 15:46:31.268 [main] INFO  com.wx.DemoWechat4jApplication - No active profile set, falling back to default profiles: default
+2019-01-14 15:46:31.890 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2019-01-14 15:46:31.891 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.14
+2019-01-14 15:46:31.943 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-01-14 15:46:32.372 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2019-01-14 15:46:32.378 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2019-01-14 15:46:32.385 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-01-14 15:46:32.396 [main] INFO  com.wx.DemoWechat4jApplication - Started DemoWechat4jApplication in 1.295 seconds (JVM running for 1.927)
+2019-01-14 15:49:04.964 [main] INFO  com.wx.DemoWechat4jApplication - Starting DemoWechat4jApplication on Lando with PID 10576 (D:\demo\demo-wechat4j\demo-wechat4j\target\classes started by 紫马 in D:\demo\demo-wechat4j\demo-wechat4j)
+2019-01-14 15:49:04.965 [main] INFO  com.wx.DemoWechat4jApplication - No active profile set, falling back to default profiles: default
+2019-01-14 15:49:05.607 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2019-01-14 15:49:05.608 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.14
+2019-01-14 15:49:05.665 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-01-14 15:49:06.106 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2019-01-14 15:49:06.111 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2019-01-14 15:49:06.119 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-01-14 15:49:06.131 [main] INFO  com.wx.DemoWechat4jApplication - Started DemoWechat4jApplication in 1.348 seconds (JVM running for 1.986)
+2019-01-14 15:49:53.676 [main] INFO  com.wx.DemoWechat4jApplication - Starting DemoWechat4jApplication on Lando with PID 4652 (D:\demo\demo-wechat4j\demo-wechat4j\target\classes started by 紫马 in D:\demo\demo-wechat4j\demo-wechat4j)
+2019-01-14 15:49:53.677 [main] INFO  com.wx.DemoWechat4jApplication - No active profile set, falling back to default profiles: default
+2019-01-14 15:49:54.381 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2019-01-14 15:49:54.382 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.14
+2019-01-14 15:49:54.463 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-01-14 15:49:54.950 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2019-01-14 15:49:54.957 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2019-01-14 15:49:54.966 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-01-14 15:49:54.981 [main] INFO  com.wx.DemoWechat4jApplication - Started DemoWechat4jApplication in 1.482 seconds (JVM running for 2.12)
+2019-01-14 15:52:32.378 [main] INFO  com.wx.DemoWechat4jApplication - Starting DemoWechat4jApplication on Lando with PID 5944 (D:\demo\demo-wechat4j\demo-wechat4j\target\classes started by 紫马 in D:\demo\demo-wechat4j\demo-wechat4j)
+2019-01-14 15:52:32.380 [main] INFO  com.wx.DemoWechat4jApplication - No active profile set, falling back to default profiles: default
+2019-01-14 15:52:33.002 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2019-01-14 15:52:33.003 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.14
+2019-01-14 15:52:33.056 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-01-14 15:52:33.488 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2019-01-14 15:52:33.493 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2019-01-14 15:52:33.501 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-80"]
+2019-01-14 15:52:33.501 [main] INFO  org.apache.catalina.core.StandardService - Stopping service Tomcat
+2019-01-14 15:52:33.506 [main] INFO  org.apache.catalina.util.LifecycleBase - The stop() method was called on component [StandardServer[-1]] after stop() had already been called. The second call will be ignored.
+2019-01-14 15:52:33.506 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-80"]
+2019-01-14 15:52:33.507 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-80"]
+2019-01-14 15:52:42.285 [main] INFO  com.wx.DemoWechat4jApplication - Starting DemoWechat4jApplication on Lando with PID 1828 (D:\demo\demo-wechat4j\demo-wechat4j\target\classes started by 紫马 in D:\demo\demo-wechat4j\demo-wechat4j)
+2019-01-14 15:52:42.287 [main] INFO  com.wx.DemoWechat4jApplication - No active profile set, falling back to default profiles: default
+2019-01-14 15:52:42.920 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2019-01-14 15:52:42.921 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.14
+2019-01-14 15:52:42.972 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-01-14 15:52:43.422 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2019-01-14 15:52:43.427 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2019-01-14 15:52:43.437 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-01-14 15:52:43.449 [main] INFO  com.wx.DemoWechat4jApplication - Started DemoWechat4jApplication in 1.33 seconds (JVM running for 1.977)
+2019-01-14 15:52:47.416 [http-nio-80-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-01-14 15:55:22.302 [main] INFO  com.wx.DemoWechat4jApplication - Starting DemoWechat4jApplication on Lando with PID 5576 (D:\demo\demo-wechat4j\demo-wechat4j\target\classes started by 紫马 in D:\demo\demo-wechat4j\demo-wechat4j)
+2019-01-14 15:55:22.305 [main] INFO  com.wx.DemoWechat4jApplication - No active profile set, falling back to default profiles: default
+2019-01-14 15:55:22.946 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2019-01-14 15:55:22.947 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.14
+2019-01-14 15:55:23.001 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-01-14 15:55:23.441 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2019-01-14 15:55:23.447 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2019-01-14 15:55:23.455 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-01-14 15:55:23.468 [main] INFO  com.wx.DemoWechat4jApplication - Started DemoWechat4jApplication in 1.332 seconds (JVM running for 1.953)
+2019-01-14 15:55:39.643 [http-nio-80-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-01-14 16:02:05.308 [main] INFO  com.wx.DemoWechat4jApplication - Starting DemoWechat4jApplication on Lando with PID 12600 (D:\demo\demo-wechat4j\demo-wechat4j\target\classes started by 紫马 in D:\demo\demo-wechat4j\demo-wechat4j)
+2019-01-14 16:02:05.309 [main] INFO  com.wx.DemoWechat4jApplication - No active profile set, falling back to default profiles: default
+2019-01-14 16:02:05.944 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2019-01-14 16:02:05.945 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.14
+2019-01-14 16:02:06.002 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-01-14 16:02:06.442 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2019-01-14 16:02:06.448 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2019-01-14 16:02:06.457 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-01-14 16:02:06.473 [main] INFO  com.wx.DemoWechat4jApplication - Started DemoWechat4jApplication in 1.332 seconds (JVM running for 1.949)
+2019-01-14 16:02:28.666 [http-nio-80-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-01-14 16:03:52.081 [main] INFO  com.wx.DemoWechat4jApplication - Starting DemoWechat4jApplication on Lando with PID 15176 (D:\demo\demo-wechat4j\demo-wechat4j\target\classes started by 紫马 in D:\demo\demo-wechat4j\demo-wechat4j)
+2019-01-14 16:03:52.083 [main] INFO  com.wx.DemoWechat4jApplication - No active profile set, falling back to default profiles: default
+2019-01-14 16:03:52.739 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2019-01-14 16:03:52.740 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.14
+2019-01-14 16:03:52.792 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-01-14 16:03:53.231 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2019-01-14 16:03:53.236 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2019-01-14 16:03:53.244 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-01-14 16:03:53.256 [main] INFO  com.wx.DemoWechat4jApplication - Started DemoWechat4jApplication in 1.337 seconds (JVM running for 1.948)
+2019-01-14 16:04:02.184 [http-nio-80-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-01-14 16:13:46.910 [main] INFO  com.wx.DemoWechat4jApplication - Starting DemoWechat4jApplication on Lando with PID 5576 (D:\demo\demo-wechat4j\demo-wechat4j\target\classes started by 紫马 in D:\demo\demo-wechat4j\demo-wechat4j)
+2019-01-14 16:13:46.912 [main] INFO  com.wx.DemoWechat4jApplication - No active profile set, falling back to default profiles: default
+2019-01-14 16:13:47.550 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2019-01-14 16:13:47.551 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.14
+2019-01-14 16:13:47.604 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-01-14 16:13:48.042 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2019-01-14 16:13:48.047 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2019-01-14 16:13:48.055 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-01-14 16:13:48.067 [main] INFO  com.wx.DemoWechat4jApplication - Started DemoWechat4jApplication in 1.321 seconds (JVM running for 1.94)
+2019-01-14 16:14:00.427 [http-nio-80-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-01-14 16:15:20.830 [main] INFO  com.wx.DemoWechat4jApplication - Starting DemoWechat4jApplication on Lando with PID 12072 (D:\demo\demo-wechat4j\demo-wechat4j\target\classes started by 紫马 in D:\demo\demo-wechat4j\demo-wechat4j)
+2019-01-14 16:15:20.833 [main] INFO  com.wx.DemoWechat4jApplication - No active profile set, falling back to default profiles: default
+2019-01-14 16:15:21.472 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2019-01-14 16:15:21.473 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.14
+2019-01-14 16:15:21.527 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-01-14 16:15:21.965 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2019-01-14 16:15:21.970 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2019-01-14 16:15:21.978 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-01-14 16:15:21.990 [main] INFO  com.wx.DemoWechat4jApplication - Started DemoWechat4jApplication in 1.323 seconds (JVM running for 1.935)
+2019-01-14 16:15:41.760 [http-nio-80-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-01-14 16:16:05.112 [main] INFO  com.wx.DemoWechat4jApplication - Starting DemoWechat4jApplication on Lando with PID 4904 (D:\demo\demo-wechat4j\demo-wechat4j\target\classes started by 紫马 in D:\demo\demo-wechat4j\demo-wechat4j)
+2019-01-14 16:16:05.114 [main] INFO  com.wx.DemoWechat4jApplication - No active profile set, falling back to default profiles: default
+2019-01-14 16:16:05.753 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2019-01-14 16:16:05.754 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.14
+2019-01-14 16:16:05.807 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-01-14 16:16:06.245 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2019-01-14 16:16:06.250 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2019-01-14 16:16:06.259 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-01-14 16:16:06.271 [main] INFO  com.wx.DemoWechat4jApplication - Started DemoWechat4jApplication in 1.328 seconds (JVM running for 1.962)
+2019-01-14 16:16:10.031 [http-nio-80-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-01-14 16:16:42.351 [main] INFO  com.wx.DemoWechat4jApplication - Starting DemoWechat4jApplication on Lando with PID 8348 (D:\demo\demo-wechat4j\demo-wechat4j\target\classes started by 紫马 in D:\demo\demo-wechat4j\demo-wechat4j)
+2019-01-14 16:16:42.352 [main] INFO  com.wx.DemoWechat4jApplication - No active profile set, falling back to default profiles: default
+2019-01-14 16:16:42.980 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2019-01-14 16:16:42.981 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.14
+2019-01-14 16:16:43.036 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-01-14 16:16:43.473 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2019-01-14 16:16:43.478 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2019-01-14 16:16:43.486 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-01-14 16:16:43.498 [main] INFO  com.wx.DemoWechat4jApplication - Started DemoWechat4jApplication in 1.312 seconds (JVM running for 1.921)
+2019-01-14 16:16:49.832 [http-nio-80-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-01-14 16:17:37.795 [main] INFO  com.wx.DemoWechat4jApplication - Starting DemoWechat4jApplication on Lando with PID 6512 (D:\demo\demo-wechat4j\demo-wechat4j\target\classes started by 紫马 in D:\demo\demo-wechat4j\demo-wechat4j)
+2019-01-14 16:17:37.797 [main] INFO  com.wx.DemoWechat4jApplication - No active profile set, falling back to default profiles: default
+2019-01-14 16:17:38.422 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2019-01-14 16:17:38.423 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.14
+2019-01-14 16:17:38.477 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-01-14 16:17:38.912 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2019-01-14 16:17:38.917 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2019-01-14 16:17:38.925 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-01-14 16:17:38.937 [main] INFO  com.wx.DemoWechat4jApplication - Started DemoWechat4jApplication in 1.306 seconds (JVM running for 1.944)
+2019-01-14 16:17:43.919 [http-nio-80-exec-3] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-01-14 16:18:39.093 [main] INFO  com.wx.DemoWechat4jApplication - Starting DemoWechat4jApplication on Lando with PID 14324 (D:\demo\demo-wechat4j\demo-wechat4j\target\classes started by 紫马 in D:\demo\demo-wechat4j\demo-wechat4j)
+2019-01-14 16:18:39.095 [main] INFO  com.wx.DemoWechat4jApplication - No active profile set, falling back to default profiles: default
+2019-01-14 16:18:39.725 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2019-01-14 16:18:39.726 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.14
+2019-01-14 16:18:39.778 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-01-14 16:18:40.222 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2019-01-14 16:18:40.227 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2019-01-14 16:18:40.236 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-01-14 16:18:40.248 [main] INFO  com.wx.DemoWechat4jApplication - Started DemoWechat4jApplication in 1.321 seconds (JVM running for 1.941)
+2019-01-14 16:18:44.674 [http-nio-80-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-01-14 16:19:21.661 [main] INFO  com.wx.DemoWechat4jApplication - Starting DemoWechat4jApplication on Lando with PID 472 (D:\demo\demo-wechat4j\demo-wechat4j\target\classes started by 紫马 in D:\demo\demo-wechat4j\demo-wechat4j)
+2019-01-14 16:19:21.662 [main] INFO  com.wx.DemoWechat4jApplication - No active profile set, falling back to default profiles: default
+2019-01-14 16:19:22.307 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2019-01-14 16:19:22.308 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.14
+2019-01-14 16:19:22.361 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-01-14 16:19:22.797 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2019-01-14 16:19:22.802 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2019-01-14 16:19:22.810 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-01-14 16:19:22.822 [main] INFO  com.wx.DemoWechat4jApplication - Started DemoWechat4jApplication in 1.325 seconds (JVM running for 1.969)
+2019-01-14 16:19:27.232 [http-nio-80-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-01-14 16:24:18.742 [main] INFO  com.wx.DemoWechat4jApplication - Starting DemoWechat4jApplication on Lando with PID 11044 (D:\demo\demo-wechat4j\demo-wechat4j\target\classes started by 紫马 in D:\demo\demo-wechat4j\demo-wechat4j)
+2019-01-14 16:24:18.744 [main] INFO  com.wx.DemoWechat4jApplication - No active profile set, falling back to default profiles: default
+2019-01-14 16:24:19.381 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2019-01-14 16:24:19.382 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.14
+2019-01-14 16:24:19.434 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-01-14 16:24:19.870 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2019-01-14 16:24:19.875 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2019-01-14 16:24:19.885 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-80"]
+2019-01-14 16:24:19.886 [main] INFO  org.apache.catalina.core.StandardService - Stopping service Tomcat
+2019-01-14 16:24:19.891 [main] INFO  org.apache.catalina.util.LifecycleBase - The stop() method was called on component [StandardServer[-1]] after stop() had already been called. The second call will be ignored.
+2019-01-14 16:24:19.891 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-80"]
+2019-01-14 16:24:19.891 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-80"]
+2019-01-14 16:24:27.452 [main] INFO  com.wx.DemoWechat4jApplication - Starting DemoWechat4jApplication on Lando with PID 2944 (D:\demo\demo-wechat4j\demo-wechat4j\target\classes started by 紫马 in D:\demo\demo-wechat4j\demo-wechat4j)
+2019-01-14 16:24:27.454 [main] INFO  com.wx.DemoWechat4jApplication - No active profile set, falling back to default profiles: default
+2019-01-14 16:24:28.091 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2019-01-14 16:24:28.091 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.14
+2019-01-14 16:24:28.144 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-01-14 16:24:28.575 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2019-01-14 16:24:28.579 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2019-01-14 16:24:28.587 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-01-14 16:24:28.598 [main] INFO  com.wx.DemoWechat4jApplication - Started DemoWechat4jApplication in 1.315 seconds (JVM running for 1.938)
+2019-01-14 16:24:38.382 [http-nio-80-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-01-14 17:36:29.674 [main] INFO  com.wx.DemoWechat4jApplication - Starting DemoWechat4jApplication on Lando with PID 8812 (D:\demo\demo-wechat4j\demo-wechat4j\target\classes started by 紫马 in D:\demo\demo-wechat4j\demo-wechat4j)
+2019-01-14 17:36:29.676 [main] INFO  com.wx.DemoWechat4jApplication - No active profile set, falling back to default profiles: default
+2019-01-14 17:36:30.354 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2019-01-14 17:36:30.354 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.14
+2019-01-14 17:36:30.411 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-01-14 17:36:30.848 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2019-01-14 17:36:30.854 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2019-01-14 17:36:30.862 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-01-14 17:36:30.875 [main] INFO  com.wx.DemoWechat4jApplication - Started DemoWechat4jApplication in 1.371 seconds (JVM running for 2.002)
+2019-01-14 17:37:27.225 [http-nio-80-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-01-14 17:39:46.095 [main] INFO  com.wx.DemoWechat4jApplication - Starting DemoWechat4jApplication on Lando with PID 3000 (D:\demo\demo-wechat4j\demo-wechat4j\target\classes started by 紫马 in D:\demo\demo-wechat4j\demo-wechat4j)
+2019-01-14 17:39:46.096 [main] INFO  com.wx.DemoWechat4jApplication - No active profile set, falling back to default profiles: default
+2019-01-14 17:39:46.722 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2019-01-14 17:39:46.723 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.14
+2019-01-14 17:39:46.778 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-01-14 17:39:47.202 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2019-01-14 17:39:47.207 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2019-01-14 17:39:47.215 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-01-14 17:39:47.227 [main] INFO  com.wx.DemoWechat4jApplication - Started DemoWechat4jApplication in 1.294 seconds (JVM running for 1.897)
+2019-01-14 17:39:52.707 [http-nio-80-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-01-14 17:41:32.935 [main] INFO  com.wx.DemoWechat4jApplication - Starting DemoWechat4jApplication on Lando with PID 7564 (D:\demo\demo-wechat4j\demo-wechat4j\target\classes started by 紫马 in D:\demo\demo-wechat4j\demo-wechat4j)
+2019-01-14 17:41:32.936 [main] INFO  com.wx.DemoWechat4jApplication - No active profile set, falling back to default profiles: default
+2019-01-14 17:41:33.558 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2019-01-14 17:41:33.559 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.14
+2019-01-14 17:41:33.613 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-01-14 17:41:34.041 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2019-01-14 17:41:34.047 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2019-01-14 17:41:34.055 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-01-14 17:41:34.066 [main] INFO  com.wx.DemoWechat4jApplication - Started DemoWechat4jApplication in 1.294 seconds (JVM running for 1.897)
+2019-01-14 17:41:42.987 [http-nio-80-exec-2] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-01-14 17:42:32.107 [main] INFO  com.wx.DemoWechat4jApplication - Starting DemoWechat4jApplication on Lando with PID 14428 (D:\demo\demo-wechat4j\demo-wechat4j\target\classes started by 紫马 in D:\demo\demo-wechat4j\demo-wechat4j)
+2019-01-14 17:42:32.109 [main] INFO  com.wx.DemoWechat4jApplication - No active profile set, falling back to default profiles: default
+2019-01-14 17:42:32.729 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2019-01-14 17:42:32.730 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.14
+2019-01-14 17:42:32.783 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-01-14 17:42:33.208 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2019-01-14 17:42:33.214 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2019-01-14 17:42:33.222 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-01-14 17:42:33.234 [main] INFO  com.wx.DemoWechat4jApplication - Started DemoWechat4jApplication in 1.294 seconds (JVM running for 1.902)
+2019-01-14 17:42:42.434 [http-nio-80-exec-2] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-01-14 17:50:31.128 [main] INFO  com.wx.DemoWechat4jApplication - Starting DemoWechat4jApplication on Lando with PID 12964 (D:\demo\demo-wechat4j\demo-wechat4j\target\classes started by 紫马 in D:\demo\demo-wechat4j\demo-wechat4j)
+2019-01-14 17:50:31.130 [main] INFO  com.wx.DemoWechat4jApplication - No active profile set, falling back to default profiles: default
+2019-01-14 17:50:31.781 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2019-01-14 17:50:31.782 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.14
+2019-01-14 17:50:31.837 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-01-14 17:50:32.272 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2019-01-14 17:50:32.279 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2019-01-14 17:50:32.286 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-01-14 17:50:32.299 [main] INFO  com.wx.DemoWechat4jApplication - Started DemoWechat4jApplication in 1.342 seconds (JVM running for 1.965)
+2019-01-14 17:51:03.363 [http-nio-80-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
